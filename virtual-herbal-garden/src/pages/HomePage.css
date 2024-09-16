@@ -1,0 +1,229 @@
+/* General Styles */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding-bottom: 100px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .hero-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+  }
+  
+  .down-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: rgba(237, 153, 17, 0.9);
+    cursor: pointer;
+  }
+  
+  .down-arrow:hover {
+    transform: translate(-50%, 5px);
+    transition: transform 0.3s ease;
+  }
+  
+  .hero-title {
+    color: #fff;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .hero-subtitle {
+    color: #e0e0e0;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    animation: fadeIn 2s ease-in;
+  }
+  
+  .explore-btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: fadeIn 3s ease-in;
+  }
+  
+  .explore-btn:hover {
+    background-color: #388e3c;
+  }
+  
+/* General category styling */
+.section-title {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-left: 20px;
+}
+.category-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 20px;
+}
+
+.category-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.category-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px;
+  background-color: rgba(237, 153, 17, 0.1);
+  border-radius: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.category-content:hover {
+  background-color: rgba(237, 153, 17, 0.3);
+  transform: translateY(-5px);
+}
+
+.category-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.category-text {
+  flex: 1;
+  color: #333;
+}
+
+.category-text h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.category-text p {
+  font-size: 1rem;
+  color: #555;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Remove default link styling and apply to the container */
+.category-item a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* Hover effect for image */
+.category-img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+  
+  /* Footer Section */
+  .footer-section {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 10%;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-content p {
+    margin: 0;
+  }
+  
+  .social-icons a {
+    margin-left: 20px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .social-icons a:hover {
+    color: #4caf50;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+  
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+  
+    .explore-btn {
+      font-size: 1rem;
+    }
+  
+    .category-item {
+      width: 45%;
+    }
+  
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-content p {
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .category-item {
+      width: 100%;
+    }
+  }
+  

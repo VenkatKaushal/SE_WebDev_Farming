@@ -1,15 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './PlantCard.css';
 
-function PlantCard({ plant }) {
+const PlantCard = ({ plant }) => {
+  const navigate = useNavigate();  
+
+  const handleClick = () => {
+    navigate(`/plant/${plant.id}`);  
+  };
+
   return (
-    <div className="plant-card">
-      <img src={plant.image} alt={plant.name} />
-      <h3>{plant.name}</h3>
-      <Link to={`/plant/${plant.id}`}>Learn More</Link>
+    <div className="plant-card" onClick={handleClick}>
+      <div className="plant-card-img-container">
+        <img src={plant.image_url} alt={plant.common_name} className="plant-card-img" />
+        <div className="plant-card-overlay">
+          <p className="plant-card-description">{plant.description}</p>
+        </div>
+      </div>
+      <div className="plant-card-info">
+        <h3 className="plant-card-name">{plant.common_name} ({plant.scientific_name})</h3>
+      </div>
     </div>
   );
-}
+};
 
 export default PlantCard;

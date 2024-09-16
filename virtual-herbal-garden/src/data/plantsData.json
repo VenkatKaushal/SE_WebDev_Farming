@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "scientific_name": "Achillea millefolium",
+      "common_name": "Yarrow",
+      "description": "Yarrow has been used in herbal medicine for wound healing and digestive issues.",
+      "image_url": "/public/yarrow.jpg",
+      "category": ["Medicinal Uses", "Habitat"]
+    },
+    { 
+      "id": 2,
+      "scientific_name": "Aloe vera",
+      "common_name": "Aloe Vera",
+      "description": "Aloe Vera is widely known for its use in skin care and as a digestive aid.",
+      "image_url": "/public/aloe_vera.jpg",
+      "category": ["Medicinal Uses"]
+    }
+  ]
+  
