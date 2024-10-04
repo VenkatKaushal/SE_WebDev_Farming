@@ -5,7 +5,7 @@ import SimulationPage from './SimulationPage/SimulationPage'
 function App(){
     return (
         // <App/> Change this name to <App/> and import to see Home page.
-        <SimulationPage/>
+        <HomePage/>
     );
 };
 
