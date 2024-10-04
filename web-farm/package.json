@@ -7,12 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "test": "react-scripts test"
+    "preview": "vite preview"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "@react-three/drei": "^9.114.0",
     "@react-three/fiber": "^8.17.9",
+    "bootstrap": "^5.3.3",
     "fabric": "^6.4.2",
     "react": "^18.3.1",
     "react-dnd": "^16.0.1",
