@@ -1,0 +1,46 @@
+.soil-panel {
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .soil-panel-title {
+    font-size: 1.25rem; 
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  
+  .soil-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .soil-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+  }
+  
+  .soil-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .soil-icon {
+    width: 32px;
+    height: 32px; 
+    margin-right: 8px;
+  }
+  
+  .soil-name {
+    font-size: 0.875rem; 
+    flex: 1; 
+    white-space: wrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+  }
+  
