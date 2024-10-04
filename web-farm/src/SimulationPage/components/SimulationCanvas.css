@@ -1,6 +1,6 @@
 .canvas {
     background-color: #eaeaea; 
-    width: calc(100% - 250px); 
+    width: calc(100% - 350px); 
     height: 100%;
     position: relative; 
     overflow: hidden; 
@@ -16,7 +16,7 @@
   }
   
   
-  @media (max-width: 768px) {
+  @media (max-width: 668px) {
     .canvas {
       width: 100%;
       border-left: none; 

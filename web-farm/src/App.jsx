@@ -1,9 +1,11 @@
 import React from 'react'
 import HomePage from './HomePage/HomePage';
+import SimulationPage from './SimulationPage/SimulationPage'
 
 function App(){
     return (
-        <HomePage/> // Change this name to <App/> and import to see Simulation Page.
+        // <App/> Change this name to <App/> and import to see Home page.
+        <SimulationPage/>
     );
 };
 
