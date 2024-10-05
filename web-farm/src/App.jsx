@@ -2,7 +2,7 @@ import React from 'react'
 import HomePage from './HomePage/HomePage';
 import SimulationPage from './SimulationPage/SimulationPage'
 import PredictorPage from './PredictorPage/PredictionPage'
-import InfoPage from './Info_Page/Components/InfoPage'
+import InfoPage from './Info_Page/Components/info_page'
 
 function App(){
     return (
