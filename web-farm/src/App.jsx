@@ -2,6 +2,7 @@ import React from 'react'
 import HomePage from './HomePage/HomePage';
 import SimulationPage from './SimulationPage/SimulationPage'
 import PredictorPage from './PredictorPage/PredictionPage'
+import InfoPage from './Info_Page/Components/InfoPage'
 
 function App(){
     return (
