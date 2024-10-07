@@ -23,7 +23,7 @@ export const LoginPage = () => {
           <button type="submit">Login</button>
 
           <div className="register-link">
-            <p>Don't have an account? <Link to="/register">Register</Link></p>
+            <p>Don't have an account? <Link to="/signup">Register</Link></p>
           </div>
         </form>
       </div>
