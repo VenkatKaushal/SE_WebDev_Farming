@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './HomeCarousel.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JS (includes Popper.js)
 
@@ -57,7 +59,9 @@ const HomeCarousel = () => {
                                 <h3 class="mb-0">Crop Simulation</h3>
                                 <div class="mb-1 text-muted"></div>
                                 <p class="card-text mb-auto">You can see the simulation of the crop from here.</p>
-                                    <a href="#" class="btn btn-primary">Simulate</a>
+                                <button className="btn btn-primary">
+                                    <Link to="/simulate" className="nav-link-custom">Simulate</Link>
+                                </button>
                             </div>
                             <div class="col-auto d-none d-lg-block">
                                 <img class="bd-placeholder-img" width="200" height="250" src="Simulate-Card.jpg" alt="" />
@@ -72,7 +76,9 @@ const HomeCarousel = () => {
                                 <h3 class="mb-0">Know Your Crop</h3>
                                 <div class="mb-1 text-muted"></div>
                                 <p class="mb-auto">From here you get to know the information about you crop.</p>
-                                    <a href="#" class="btn btn-primary">Your Crop info</a>
+                                <button className="btn btn-primary">
+                                    <Link to="" className="nav-link-custom">Your Crop info</Link>
+                                </button>
                             </div>
                             <div class="col-auto d-none d-lg-block">
                                 <img class="bd-placeholder-img" width="200" height="250" src="KnowYourCrop-Card.jpg" alt="" />
@@ -92,7 +98,9 @@ const HomeCarousel = () => {
                                 <h3 class="mb-0">View Your Data</h3>
                                 <div class="mb-1 text-muted"></div>
                                 <p class="card-text mb-auto">Get the Proper information and Statistical data.</p>
-                                    <a href="#" class="btn btn-primary">View Data</a>
+                                <button className="btn btn-primary">
+                                    <Link to="" className="nav-link-custom">View Data</Link>
+                                </button>
                             </div>
                             <div class="col-auto d-none d-lg-block">
                                 <img class="bd-placeholder-img" width="200" height="250" src="ViewYourCrop.jpg" alt="" />
@@ -107,7 +115,9 @@ const HomeCarousel = () => {
                                 <h3 class="mb-0">Stats</h3>
                                 <div class="mb-1 text-muted"></div>
                                 <p class="mb-auto">You can get the information on the based of stats.</p>
-                                    <a href="#" class="btn btn-primary">View Stats</a>
+                                <button className="btn btn-primary">
+                                    <Link to="" className="nav-link-custom">View Stats</Link>
+                                </button>
                             </div>
                             <div class="col-auto d-none d-lg-block">
                                 <img class="bd-placeholder-img" width="200" height="250" src="Stats-Card.jpg" alt="" />
