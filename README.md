@@ -3,7 +3,59 @@
 ---
 
 ###Overview
-This project aims to develop a system that predicts both the quality and quantity of crop yield based on multiple factors, including soil quality, rainfall, location, and weather conditions. The system incorporates data from government sources and integrates weather forecasts to enhance prediction accuracy.
+- In this project, we aim to develop a system that predicts both the quality
+and quantity of crop yield based on multiple factors such as soil quality,
+rainfall (3 days), location, and weather conditions. Soil quality data will
+be sourced from government websites (e.g., soilhealth.dac.gov.in),
+while the user will provide rainfall and location inputs. The system will
+integrate weather forecasts to enhance prediction accuracy.
+- Based on the collected data, our solution will simulate the crop’s growth
+cycle, predicting its yield over time. Furthermore, the project will
+feature a 3D simulation of the crop’s development, providing a visual
+representation of its ripening process or potential decay under varying
+conditions.
+
+
+### Contribution
+Date: 26/09/24
+Members: Whole team
+Work: We presented our first idea infront of sir but it has some issues so we decided to drop it.
+
+Date: 27-28/09/24
+Members: Havish, Shankhesh, Manan, Kaushal
+Work: Discussion about new idea & all possible cases about it. At the end we finalized our idea.
+
+Date: 28/09/24
+Members: Manan, Kaushal
+Work: Manan made 2D demo model and kaushal made 3D demo model to represent it infront of sir.
+
+Date: 29/09/24
+Members: Havish, Shankhesh, Manan, Kaushal
+Work: Represented idea infront of sir & sir accepted it with minor suggetions.
+
+Date: 30/09/24
+Members: Havish, Shankhesh, Manan, Kaushal, Harshit
+Work: Meeting with TAs to represent out ideas and discuss about difficulties.
+
+Date: 30/09/24
+Members: Havish, Shankhesh
+Work: Made the requirment Document and UML diagram to submit it.
+
+Date: 2/10/24-5/10/24
+Members: Havish, Shankhesh, Manan, Kaushal, Harshit
+Work: Harshit - Make login page 
+      Me - Main Page (Home Page) design & Feedback Page (Main Features 4 Buttons that I know) 
+      Kaushal - simulation page design  ( User Should be able to Work on multi farm that he wants )
+      Manan - Know your Crops (Also include info about Manmade pesticide and Fertilizers )
+      Havish - Prediction Page design
+
+Date: 6/10/24-8/10/24
+Members: Havish, Shankhesh, Manan, Kaushal, Harshit
+Work: Shankhesh: made router for navigation and navigate website through that router
+      Manan: Block Case Diagram and also advanced last work
+      Harshit: Didn't completed last task on time so he continued it....
+      Kaushal: MAde jupyter Notebook for prediction and many other things also related to it.
+      Havish: Made Readme file
 
 ###Features
 
@@ -35,25 +87,6 @@ Any required libraries or dependencies (list them).
 Installation
 Clone the repository:
 
-bash
-Copy code
-git clone https://github.com/yourusername/crop-yield-prediction.git
-Navigate to the project directory:
-
-bash
-Copy code
-cd crop-yield-prediction
-Install dependencies:
-
-bash
-Copy code
-npm install
-Start the development server:
-
-bash
-Copy code
-npm run dev
-Open your browser and navigate to http://localhost:5173.
 
 - Development
 Weekly meetings to discuss progress and design decisions.
@@ -68,6 +101,6 @@ If you would like to contribute to this project, please fork the repository and 
 - License
 This project is licensed under the MIT License.
 
-Acknowledgements
-soilhealth.dac.gov.in for soil quality data.
-[List any other resources or libraries used in the project]
+
+
+
