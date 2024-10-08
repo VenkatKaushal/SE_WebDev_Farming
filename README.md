@@ -2,7 +2,7 @@
 
 ---
 
-###Overview
+### Overview
 - In this project, we aim to develop a system that predicts both the quality
 and quantity of crop yield based on multiple factors such as soil quality,
 rainfall (3 days), location, and weather conditions. Soil quality data will
@@ -57,7 +57,7 @@ Work: Shankhesh: made router for navigation and navigate website through that ro
       Kaushal: MAde jupyter Notebook for prediction and many other things also related to it.
       Havish: Made Readme file
 
-###Features
+### Features
 
 - Data Collection:
 
