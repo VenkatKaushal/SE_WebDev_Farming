@@ -1,20 +1,13 @@
 import React from 'react';
-import './RegisterPage.css';
+import './ForgotPassword.css';
 import { Link } from 'react-router-dom';
 
-export const RegisterPage = () => {
+export const ForgotPassword = () => {
   return (
     <div className='abc'>
       <div className='wrapper'>
         <form action="">
-          <h1>Register</h1>
-          <div className="input-box">
-            <input type="text" placeholder='First Name' required />
-          </div>
-
-          <div className="input-box">
-            <input type="text" placeholder='Last Name' required />
-          </div>
+          <h1>Forgot Password</h1>
 
           <div className="input-box">
           <input type="date"  required />
@@ -25,7 +18,7 @@ export const RegisterPage = () => {
           </div>
           
           <div className="input-box">
-            <input type="password" placeholder='Password' required />
+            <input type="password" placeholder='Enter your new Password' required />
           </div>
 
           <div className="input-box">
@@ -36,10 +29,10 @@ export const RegisterPage = () => {
             <label><input type="checkbox" />Remember me</label>
           </div>
 
-          <button type="submit">Register</button>
+          <button type="submit">Forgot Password</button>
 
           <div className="register-link">
-            <p>Do you have an account? <Link to="/login">Log In</Link></p> 
+            <p>Back to Login <Link to="/login">Log In</Link></p> 
           </div>
         </form>
       </div>
