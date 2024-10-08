@@ -40,4 +40,4 @@ export const ForgotPassword = () => {
   );
 }
 
-export default RegisterPage;
+export default ForgotPassword;

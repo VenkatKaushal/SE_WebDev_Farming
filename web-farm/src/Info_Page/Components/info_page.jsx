@@ -10,10 +10,10 @@ const InfoPage = () => {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/info_page/crop_info">Crop Information</Link>
+                        <Link to="/crop_info">Crop Information</Link>
                     </li>
                     <li>
-                        <Link to="/info_page/fertilizer_info">Pesticides and Fertilizers</Link>
+                        <Link to="/fertilizer_info">Pesticides and Fertilizers</Link>
                     </li>
                 </ul>
             </nav>

@@ -59,9 +59,9 @@ const HomeCarousel = () => {
                                 <h3 class="mb-0">Crop Simulation</h3>
                                 <div class="mb-1 text-muted"></div>
                                 <p class="card-text mb-auto">You can see the simulation of the crop from here.</p>
-                                <button className="btn btn-primary">
-                                    <Link to="/simulate" className="nav-link-custom">Simulate</Link>
-                                </button>
+                                <Link to="/simulate" className="nav-link-custom">
+                                    <button className="btn btn-primary">Simulate</button>
+                                </Link>
                             </div>
                             <div class="col-auto d-none d-lg-block">
                                 <img class="bd-placeholder-img" width="200" height="250" src="Simulate-Card.jpg" alt="" />
@@ -76,9 +76,9 @@ const HomeCarousel = () => {
                                 <h3 class="mb-0">Know Your Crop</h3>
                                 <div class="mb-1 text-muted"></div>
                                 <p class="mb-auto">From here you get to know the information about you crop.</p>
-                                <button className="btn btn-primary">
-                                    <Link to="" className="nav-link-custom">Your Crop info</Link>
-                                </button>
+                                <Link to="/Info" className="nav-link-custom">    
+                                    <button className="btn btn-primary">Your Crop info</button>
+                                </Link>
                             </div>
                             <div class="col-auto d-none d-lg-block">
                                 <img class="bd-placeholder-img" width="200" height="250" src="KnowYourCrop-Card.jpg" alt="" />
@@ -94,13 +94,13 @@ const HomeCarousel = () => {
                         <div
                             class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                             <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-success">View Your Data</strong>
-                                <h3 class="mb-0">View Your Data</h3>
+                                <strong class="d-inline-block mb-2 text-success">Prediction</strong>
+                                <h3 class="mb-0">Prediction</h3>
                                 <div class="mb-1 text-muted"></div>
-                                <p class="card-text mb-auto">Get the Proper information and Statistical data.</p>
-                                <button className="btn btn-primary">
-                                    <Link to="" className="nav-link-custom">View Data</Link>
-                                </button>
+                                <p class="card-text mb-auto">Get the Proper information and Prediction of the crop.</p>
+                                <Link to="/prediction" className="nav-link-custom">
+                                    <button className="btn btn-primary">View Prediction</button>
+                                </Link>
                             </div>
                             <div class="col-auto d-none d-lg-block">
                                 <img class="bd-placeholder-img" width="200" height="250" src="ViewYourCrop.jpg" alt="" />
@@ -115,9 +115,9 @@ const HomeCarousel = () => {
                                 <h3 class="mb-0">Stats</h3>
                                 <div class="mb-1 text-muted"></div>
                                 <p class="mb-auto">You can get the information on the based of stats.</p>
-                                <button className="btn btn-primary">
-                                    <Link to="" className="nav-link-custom">View Stats</Link>
-                                </button>
+                                <Link to="" className="nav-link-custom">                                
+                                <button className="btn btn-primary">View Stats</button>
+                                </Link>
                             </div>
                             <div class="col-auto d-none d-lg-block">
                                 <img class="bd-placeholder-img" width="200" height="250" src="Stats-Card.jpg" alt="" />

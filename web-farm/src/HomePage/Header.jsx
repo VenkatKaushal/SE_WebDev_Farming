@@ -31,12 +31,12 @@ function Header() {
                         <button className="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                     </form>
                     <div className="mx-2">
-                        <button className="btn btn-success">
-                            <Link to="/login" className="nav-link-custom">Login</Link>
-                        </button>
-                        <button className="btn btn-primary">
-                            <Link to="/signup" className="nav-link-custom">SignUp</Link>
-                        </button>
+                    <Link to="/login" className="nav-link-custom">
+                        <button className="btn btn-success">Login</button>
+                    </Link>
+                    <Link to="/signup" className="nav-link-custom">
+                        <button className="btn btn-primary">SignUp</button>
+                    </Link>
                     </div>
                 </div>
             </nav>

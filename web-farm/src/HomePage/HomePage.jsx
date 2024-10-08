@@ -9,20 +9,12 @@ import Simulate from "../SimulationPage/SimulationPage";
 
 function HomePage() {
     return (
-        <Router>
+       
             <>
                 <Header />
-                <Routes>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/signup" element={<SignUp />} />
-                </Routes>
                 <HomeCarousel />
-                <Routes>
-                    <Route path="/simulate" element={<Simulate/>} />
-                </Routes>
                 <Footer />
             </>
-        </Router>
     );
 }
 

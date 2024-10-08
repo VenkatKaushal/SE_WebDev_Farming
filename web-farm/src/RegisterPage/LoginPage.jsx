@@ -17,7 +17,7 @@ export const LoginPage = () => {
 
           <div className="remember-forgot">
             <label><input type="checkbox" />Remember me</label>
-            <a href="#">Forgot password?</a>
+            <Link to="/forgotpassword">Forgot password?</Link>
           </div>
 
           <button type="submit">Login</button>
