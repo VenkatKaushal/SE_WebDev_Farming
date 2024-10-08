@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import './Header.css';
+
 function Header() {
     return (
         <>
@@ -28,8 +31,12 @@ function Header() {
                         <button className="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                     </form>
                     <div className="mx-2">
-                        <button className="btn btn-success" data-toggle="modal" data-target="#loginModal">Login</button>
-                        <button className="btn btn-primary" data-toggle="modal" data-target="#signupModal">SignUp</button>
+                        <button className="btn btn-success">
+                            <Link to="/login" className="nav-link-custom">Login</Link>
+                        </button>
+                        <button className="btn btn-primary">
+                            <Link to="/signup" className="nav-link-custom">SignUp</Link>
+                        </button>
                     </div>
                 </div>
             </nav>

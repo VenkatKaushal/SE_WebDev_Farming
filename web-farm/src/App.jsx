@@ -9,10 +9,10 @@ import  RegisterPage  from './RegisterPage/Log';
 function App(){
     return (
         // <App/> Change this name to <App/> and import to see Home page.
-         //<HomePage />
+        <HomePage />
         // <PredictorPage/>
         // <InfoPage />
-        <RegisterPage/>
+        // <RegisterPage/>
         
     );
 };

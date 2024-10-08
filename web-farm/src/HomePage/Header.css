@@ -1,0 +1,9 @@
+.nav-link-custom {
+    color: white; /* Change this to the desired color */
+    text-decoration: none;
+}
+
+.nav-link-custom:hover {
+    color: lightgray; /* Optional: Change hover color */
+    text-decoration: none; /* Ensure there's no underline on hover */
+}
