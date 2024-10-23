@@ -37,6 +37,7 @@ export const RegisterPage = () => {
       });
 
       console.log(response.data); // Handle success response
+      // Redirect or show success message
       navigate('/login'); // Navigate to login page after successful registration
     } catch (error) {
       console.error('Error registering user:', error);
@@ -49,7 +50,7 @@ export const RegisterPage = () => {
       <div className='wrapper'>
         <form onSubmit={handleSubmit}>
           <h1>Register</h1>
-
+          
           <div className="input-box">
             <input type="text" name="username" placeholder='Username' required onChange={handleChange} />
           </div>
