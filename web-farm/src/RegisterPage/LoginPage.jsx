@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export const LoginPage = () => {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = username;
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -14,16 +15,17 @@ export const LoginPage = () => {
     try {
       const res = await axios.post('http://localhost:4000/api/auth/login', {
         username,
+        email,
         password,
       });
-
+      console.log("lund");
       // Assuming the backend returns a token in the response
       const token = res.data.token;
       // Save the token to localStorage (or cookie) for future requests
       localStorage.setItem('authToken', token);
-      console.log(response.data); // Handle success response
+      console.log(res.data); // Handle success response
       // Redirect to a protected route after successful login
-      navigate('/login');  // Change '/dashboard' to the appropriate route
+      navigate('/');  // Change '/dashboard' to the appropriate route
     } catch (error) {
       console.error('Error during login:', error.response?.data?.msg || error.message);
       setError(error.response?.data?.msg || 'Login failed');
@@ -44,6 +46,15 @@ export const LoginPage = () => {
               placeholder='Username' 
               value={username} 
               onChange={(e) => setUsername(e.target.value)} 
+              required 
+            />
+          </div>
+          <div className="input-box">
+            <input 
+              type="text" 
+              placeholder='Email' 
+              value={username} 
+              onChange={(e) => setEmail(e.target.value)} 
               required 
             />
           </div>
