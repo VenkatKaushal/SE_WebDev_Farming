@@ -13,7 +13,7 @@ connectDB();
 
 // Middleware to parse JSON
 app.use(express.json({ extended: false }));
-
+app.use(cors());
 // Routes
 app.use('/api/auth', auth);
 
