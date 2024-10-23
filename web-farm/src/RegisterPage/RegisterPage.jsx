@@ -30,7 +30,7 @@ export const RegisterPage = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/register', {
+      const response = await axios.post('http://localhost:4000/api/auth/register', {
         username,
         email: username, // Assuming username is being used as email. Adjust if necessary.
         password,
@@ -50,7 +50,7 @@ export const RegisterPage = () => {
       <div className='wrapper'>
         <form onSubmit={handleSubmit}>
           <h1>Register</h1>
-          
+
           <div className="input-box">
             <input type="text" name="username" placeholder='Username' required onChange={handleChange} />
           </div>
