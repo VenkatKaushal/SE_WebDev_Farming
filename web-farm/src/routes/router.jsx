@@ -6,7 +6,7 @@ import Simulate from "../SimulationPage/SimulationPage";
 import Crop_Info from "../Info_Page/Components/crop_info";
 import Fertilizer from "../Info_Page/Components/fertilizer_info";
 import Info_page from "../Info_Page/Components/info_page";
-import Prediction from "../PredictorPage/PredictionPage";
+import Prediction from "../Prediction Page/PredictionPage";
 import ForgotPassword from "../RegisterPage/ForgotPassword";
 
 export const router = createBrowserRouter([
