@@ -1,9 +1,10 @@
 // seed.js
+require('dotenv').config();
 const mongoose = require('mongoose');
-const Crop = require('./models/Crop');
+const Crop = require('../models/crops.js');
 
 // Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/cropsDB', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.CROP_DB_URI)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error('MongoDB connection error:', err));
 
