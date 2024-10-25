@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export const LoginPage = () => {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = username;
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ export const LoginPage = () => {
             <input 
               type="text" 
               placeholder='Email' 
-              value={username} 
+              value={email} 
               onChange={(e) => setEmail(e.target.value)} 
               required 
             />

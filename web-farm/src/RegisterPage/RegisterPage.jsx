@@ -21,7 +21,7 @@ export const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { firstName, lastName, dateOfBirth, username, password, confirmPassword } = formData;
+    const { firstName, lastName, dateOfBirth,email, username, password, confirmPassword } = formData;
 
     // Basic validation
     if (password !== confirmPassword) {
@@ -32,7 +32,7 @@ export const RegisterPage = () => {
     try {
       const response = await axios.post('http://localhost:4000/api/auth/register', {
         username,
-        email: username, // Assuming username is being used as email. Adjust if necessary.
+        email, // Assuming username is being used as email. Adjust if necessary.
         password,
       });
 
@@ -53,6 +53,10 @@ export const RegisterPage = () => {
 
           <div className="input-box">
             <input type="text" name="username" placeholder='Username' required onChange={handleChange} />
+          </div>
+
+          <div className="input-box">
+            <input type="text" name="email" placeholder='Email' required onChange={handleChange} />
           </div>
 
           <div className="input-box">
