@@ -14,6 +14,7 @@ connectDB();
 // Middleware to parse JSON
 app.use(express.json({ extended: false }));
 app.use(cors());
+app.use('/services/images', express.static(path.join(__dirname, 'images')));
 // Routes
 app.use('/api/auth', auth);
 app.use('/api/info',cropRoutes);
