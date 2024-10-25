@@ -12,7 +12,7 @@ const CropInfo = () => {
     useEffect(() => {
         const fetchCrops = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/api/info/crops');
+                const response = await axios.get('http://localhost:3000/api/info/crops');
                 setCrops(response.data); // Assuming the response is an array of crops
                 setLoading(false);
             } catch (err) {
