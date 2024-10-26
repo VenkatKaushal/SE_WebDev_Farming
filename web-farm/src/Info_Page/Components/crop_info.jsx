@@ -33,7 +33,7 @@ const CropInfo = () => {
             <div className="crops-grid">
                 {crops.map((crop) => (
                     <div key={crop._id} className="crop-card">
-                        <img src={'http://localhost:3000/${crop.imagePath}'} alt={crop.name} />
+                        <img src={`http://localhost:3000/services/${crop.imageUrl}`} alt={crop.name} />
                         <div className="crop-details">
                             <h3>{crop.name}</h3>
                             <ul>
