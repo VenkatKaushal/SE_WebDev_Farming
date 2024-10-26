@@ -33,7 +33,7 @@ const seedCrops = async () => {
             climate: "Tropical to subtropical, temperatures 21°C to 27°C, needs abundant water.",
             regions: ["Uttar Pradesh", "Maharashtra", "Karnataka", "Tamil Nadu", "Andhra Pradesh"],
             uses: "Produces sugar, jaggery, ethanol, and molasses, also used in biofuel.",
-            imageUrl: "../services/.jpg"
+            imageUrl: "../services/Sugarcane.jpg"
         },
         {
             name: "Maize (Corn)",
