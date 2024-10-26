@@ -4,6 +4,6 @@ const uploads = require('../middleware/upload');
 const {getMultipleCrops}  = require('../controller/cropController');
 
 // console.log("In the route filr");
-router.post('/crops',uploads.single('image'), getMultipleCrops);
+router.get('/crops',uploads.single('image'), getMultipleCrops);
 
 module.exports = router;
