@@ -30,7 +30,7 @@ export const RegisterPage = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:4000/api/auth/register', {
+      const response = await axios.post('http://localhost:3000/api/auth/register', {
         username,
         email, // Assuming username is being used as email. Adjust if necessary.
         password,
