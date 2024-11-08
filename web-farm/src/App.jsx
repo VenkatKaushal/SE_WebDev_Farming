@@ -22,10 +22,11 @@ function App(){
     return (
         <div className="p-4">
           {/* <CropVisualization /> */}
-          <CropGrowthSimulator/>
+          {/* <CropGrowthSimulator/> */}
           {/* <InteractiveCropSimulator/> */}
           {/* <PlantVisualization/> */}
           {/* <CropVisualization/> */}
+          <SimulationPage/>
         </div>
       );
 };
