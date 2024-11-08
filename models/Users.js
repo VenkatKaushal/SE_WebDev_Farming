@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+
+// Define the User Schema
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -21,10 +23,11 @@ const UserSchema = new mongoose.Schema({
     lastUpdated: { 
         type: Date, 
         default: Date.now 
+    },
+    refreshToken: {
+        type: String,
+        default: null
     }
 });
-
-
-
 
 module.exports = mongoose.model('User', UserSchema);
