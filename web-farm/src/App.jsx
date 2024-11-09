@@ -1,9 +1,5 @@
 import React from 'react'
 import HomePage from './HomePage/HomePage';
-import SimulationPage from './SimulationPage/SimulationPage'
-import PredictorPage from './Prediction Page/PredictionPage'
-import InfoPage from './Info_Page/Components/info_page'
-import  RegisterPage  from './RegisterPage/Log';
 
 
 function App(){
