@@ -12,7 +12,7 @@ const Footer = () => {
     return (
         <div style={{ backgroundColor: '#e3f2fd'}}>
             <footer className="container py-5">
-                <div id="google_translate_element" style={{ marginBottom: '2rem' }}></div>
+                
                 
                 <div className="row">
                     <div className="col-12 col-md">

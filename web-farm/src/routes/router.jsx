@@ -8,6 +8,7 @@ import Fertilizer from "../Info_Page/Components/fertilizer_info";
 import Info_page from "../Info_Page/Components/info_page";
 import ForgotPassword from "../RegisterPage/ForgotPassword";
 import PredictionPage from '../Prediction Page';
+import ContactUs from '../HomePage/ContactUs';
 
 export const router = createBrowserRouter([
             {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
             {
                 path: "/signup",
                 element: <SignUp/>,
+            },
+            {
+                path: "/contactUs",
+                element: <ContactUs/>,
             },
             {
                 path: "/simulate",

@@ -1,10 +1,12 @@
+// @ts-ignore
 import React from 'react'
 import './Navbar.css'
+// @ts-ignore
 import logo from './logo.png'
+// @ts-ignore
 import search_icon from './search.png'
 
-
-const Navbar = () => {
+function Navbar () {
   return (
     <div className='navbar'>
       <img src={logo} alt="" className='logo' />
@@ -25,7 +27,7 @@ const Navbar = () => {
        <button className='logout-button'>Logout</button>
 
     </div>
-  )
+  );
 }
 
 export default Navbar
