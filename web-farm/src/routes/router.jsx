@@ -7,7 +7,8 @@ import Crop_Info from "../Info_Page/Components/crop_info";
 import Fertilizer from "../Info_Page/Components/fertilizer_info";
 import Info_page from "../Info_Page/Components/info_page";
 import ForgotPassword from "../RegisterPage/ForgotPassword";
-import PredictionPage from '../Prediction Page';
+import PredictionPage from '../Prediction Page/PredictionPage';
+import ResultsPage from '../Prediction Page/Results';
 
 export const router = createBrowserRouter([
             {
@@ -46,4 +47,8 @@ export const router = createBrowserRouter([
                 path: "/forgotpassword",
                 element: <ForgotPassword/>,
             },
+            {
+                path: "/results",
+                element: <ResultsPage />,
+            }
 ]);
