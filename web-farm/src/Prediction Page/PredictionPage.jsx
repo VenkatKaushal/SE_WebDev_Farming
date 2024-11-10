@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './PredictionPage.css';
 
-const BACKEND_URL = 'https://se-webdev-farming-1.onrender.com'; // Your Flask backend URL
+const BACKEND_URL = 'https://se-webdev-farming-1.onrender.com';
 
 const PredictionPage = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         crop: '',
         season: '',
@@ -15,7 +17,7 @@ const PredictionPage = () => {
         pesticide: '',
     });
     const [errors, setErrors] = useState({});
-    const [predictionResult, setPredictionResult] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const validateFields = () => {
         const newErrors = {};
@@ -34,40 +36,45 @@ const PredictionPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validateFields()) return;
-
+        
+        setIsLoading(true);
         try {
-            // Retrieve temperature and rainfall from the Weather API
-            const weatherResponse = await axios.get('https://api.weatherapi.com/v1/forecast.json', {
-                params: {
-                    key: '52222cec90736fcd551231f1080d5190',
-                    q: formData.state,
-                },
-            });
-            const temperature = weatherResponse.data.current.temp_c;
-            const avgRainfall = weatherResponse.data.forecast.forecastday[0].day.totalprecip_mm;
-
-            // Prepare data to send to backend
             const payload = {
                 Crop: formData.crop,
                 Season: formData.season,
                 State: formData.state,
+                Annual_Rainfall: parseFloat(formData.rainfall),
                 Production: parseFloat(formData.production),
-                Annual_Rainfall: parseFloat(formData.rainfall || avgRainfall),
                 Fertilizer: parseFloat(formData.fertilizer),
                 Pesticide: parseFloat(formData.pesticide),
-                Temperature: temperature,
             };
 
-            // Send data to Flask backend
-            const response = await axios.post(`${BACKEND_URL}/predict`, payload);  // Use the backend URL
+            const response = await axios.post(`${BACKEND_URL}/predict`, payload);
+            
             if (response.data.success) {
-                setPredictionResult(response.data.predicted_yield);
+                // Navigate to results page with both prediction and input data
+                navigate('/results', {
+                    state: {
+                        prediction: response.data.predicted_yield,
+                        input_data: {
+                            crop: formData.crop,
+                            season: formData.season,
+                            state: formData.state,
+                            production: formData.production,
+                            rainfall: formData.rainfall,
+                            fertilizer: formData.fertilizer,
+                            pesticide: formData.pesticide,
+                        }
+                    }
+                });
             } else {
                 alert(response.data.error || 'An error occurred during prediction');
             }
         } catch (error) {
-            console.error('Error fetching weather data or submitting prediction:', error);
-            alert('Failed to get prediction or weather data.');
+            console.error('Error submitting prediction:', error);
+            alert('Failed to get prediction. Please check your connection and try again.');
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -76,7 +83,6 @@ const PredictionPage = () => {
             <div className="container mx-auto px-4">
                 <h1 className="text-3xl font-bold mb-6 text-center">Crop Yield Prediction</h1>
                 <form className="max-w-md mx-auto bg-white rounded-lg shadow-md p-6 space-y-4" onSubmit={handleSubmit}>
-                    
                     {/* Crop Dropdown */}
                     <div className="field-container">
                         <label className="block text-sm font-medium text-gray-700">
@@ -169,19 +175,15 @@ const PredictionPage = () => {
                     <div className="flex justify-center">
                         <button
                             type="submit"
-                            className="py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700"
+                            disabled={isLoading}
+                            className={`py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md ${
+                                isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-indigo-700'
+                            }`}
                         >
-                            Predict Yield
+                            {isLoading ? 'Predicting...' : 'Predict Yield'}
                         </button>
                     </div>
                 </form>
-
-                {predictionResult && (
-                    <div className="mt-8 bg-white p-6 rounded-lg shadow-md text-center">
-                        <h2 className="text-2xl font-bold text-indigo-600">Predicted Yield</h2>
-                        <p className="text-3xl font-semibold mt-4">{predictionResult} units per area</p>
-                    </div>
-                )}
             </div>
         </div>
     );

@@ -13,7 +13,7 @@ const ResultsPage = () => {
                 <div className="space-y-4">
                     <div className="border-b pb-4">
                         <h2 className="text-xl font-semibold text-indigo-600">Predicted Yield</h2>
-                        <p className="text-3xl font-bold">{prediction ? prediction.toFixed(2) : "N/A"}</p>
+                        <p className="text-3xl font-bold">{prediction ? prediction : "N/A"}</p>
                         <p className="text-sm text-gray-500">units per area</p>
                     </div>
                     <div className="space-y-2">
@@ -33,12 +33,20 @@ const ResultsPage = () => {
                 </div>
                 <div className="mt-8 flex justify-center">
                     <Link
-                        to="/"
-                        className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        to="/prediction"
+                        style={{
+                            padding: '12px 24px',
+                            borderRadius: '25px',
+                            backgroundColor: '#4CAF50',
+                            color: 'white',
+                            textDecoration: 'none',
+                            textAlign: 'center',
+                        }}
                     >
                         Make Another Prediction
                     </Link>
                 </div>
+                
             </div>
         </div>
     );

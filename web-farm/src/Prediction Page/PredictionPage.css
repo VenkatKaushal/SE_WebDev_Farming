@@ -1,150 +1,319 @@
-/* Container styling */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9fafb;
+/* PredictionPage.css */
+
+/* Custom Properties */
+:root {
+  --primary-color: #4f46e5;
+  --primary-dark: #4338ca;
+  --secondary-color: #f3f4f6;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --transition-speed: 0.3s;
+  --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* Form styling */
+/* Global Styles */
+body {
+  background: linear-gradient(135deg, #f6f7ff 0%, #ffffff 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* Container Animation */
+.container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Form Styles */
 .form-container {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  max-width: 500px;
-  margin: auto;
-  transition: box-shadow 0.3s ease;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-speed);
 }
 
 .form-container:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
-/* Heading styling */
-h1 {
-  font-size: 2.5rem;
-  color: #1f2937;
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: bold;
+/* Field Container Styles */
+.field-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+  animation: slideUp 0.4s ease-out forwards;
+  opacity: 0;
 }
 
-/* Label styling */
+.field-container:nth-child(1) { animation-delay: 0.1s; }
+.field-container:nth-child(2) { animation-delay: 0.2s; }
+.field-container:nth-child(3) { animation-delay: 0.3s; }
+.field-container:nth-child(4) { animation-delay: 0.4s; }
+.field-container:nth-child(5) { animation-delay: 0.5s; }
+.field-container:nth-child(6) { animation-delay: 0.6s; }
+.field-container:nth-child(7) { animation-delay: 0.7s; }
+
+/* Label Styles */
 label {
-  font-size: 0.875rem;
-  color: #4b5563;
   font-weight: 500;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-/* Input fields styling */
-input[type="text"],
-input[type="number"],
-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-select:focus {
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 1px #4f46e5;
-}
-
-/* Button styling */
-button[type="submit"] {
-  background-color: #4f46e5;
-  color: #ffffff;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-  background-color: #4338ca;
-}
-
-button[type="submit"]:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.4);
-}
-
-/* Batch upload section */
-.batch-upload {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid #e5e7eb;
-}
-
-.batch-upload h2 {
-  font-size: 1.25rem;
-  color: #1f2937;
-  font-weight: 600;
-}
-
-.file-input {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  font-size: 0.875rem;
-  color: #4b5563;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* Mobile responsive adjustments */
-@media (max-width: 600px) {
-  .form-container {
-      padding: 20px;
-  }
-
-  h1 {
-      font-size: 2rem;
-  }
-}
-
-/* Tooltip circle style */
+/* Tooltip Styles */
 .tooltip-icon {
-  display: inline-block;
-  font-size: 14px;
-  font-weight: bold;
-  width: 20px;
-  height: 20px;
-  background-color: #0073e6;
-  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  text-align: center;
-  line-height: 20px;
-  cursor: pointer;
-  margin-left: 8px;
+  background-color: var(--text-secondary);
+  color: white;
+  font-size: 12px;
+  cursor: help;
+  transition: all var(--transition-speed);
   position: relative;
 }
 
-/* Tooltip text on hover */
-.tooltip-icon:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 125%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #0073e6;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 14px;
-  white-space: nowrap;
-  width: max-content;
-  z-index: 1000;
+.tooltip-icon:hover {
+  background-color: var(--primary-color);
 }
 
+.tooltip-icon[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 10;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Input and Select Styles */
+input, select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  transition: all var(--transition-speed);
+  background-color: white;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+input:focus, select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  outline: none;
+}
+
+input:hover, select:hover {
+  border-color: var(--primary-dark);
+}
+
+/* Button Styles */
+button {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all var(--transition-speed);
+  border: none;
+  cursor: pointer;
+  width: auto;
+  min-width: 150px;
+  position: relative;
+  overflow: hidden;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+button:not(:disabled):active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Results Page Specific Styles */
+.results-container {
+  animation: slideUp 0.5s ease-out;
+}
+
+.result-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+  margin: 1.5rem 0;
+  animation: scaleIn 0.5s ease-out;
+}
+
+.input-summary {
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.input-summary h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Error Message Styles */
+.error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  animation: shake 0.4s ease-in-out;
+}
+
+/* Success Message Styles */
+.success-message {
+  color: var(--success-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Responsive Styles */
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  button {
+    width: 100%;
+  }
+  
+  .tooltip-icon[data-tooltip]:hover::after {
+    white-space: normal;
+    width: 200px;
+    left: -100px;
+  }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Card Hover Effects */
+.card {
+  transition: all var(--transition-speed);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Link Styles */
+.back-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  transition: all var(--transition-speed);
+}
+
+.back-link:hover {
+  color: var(--primary-dark);
+  transform: translateX(-4px);
+}
+
+/* Success Animation */
+.success-checkmark {
+  color: var(--success-color);
+  font-size: 3rem;
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

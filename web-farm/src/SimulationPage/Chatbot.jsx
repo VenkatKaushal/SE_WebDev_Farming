@@ -16,20 +16,45 @@ const Chatbot = ({ toggleChatbot }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post('https://api.gemini.com/v1/chat', {
-        message: userMessage,
-        apiKey: 'YOUR_GEMINI_API_KEY',  // Replace with your GEMINI API key
-      });
+      const response = await axios.post(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyBWwtGTHLycz1DEEvJ-CliHu4SXJm6-H9s`,
+        {
+          contents: [
+            {
+              parts: [
+                {
+                  text: userMessage
+                }
+              ]
+            }
+          ]
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }
+      );
 
-      setChatHistory([
-        ...newChatHistory,
-        { sender: 'gemini', message: response.data.reply },
-      ]);
+      // Extract the reply from the response
+      const reply = response.data.candidates[0]?.content?.parts[0]?.text;
+
+      if (reply) {
+        setChatHistory([
+          ...newChatHistory,
+          { sender: 'gemini', message: reply }
+        ]);
+      } else {
+        setChatHistory([
+          ...newChatHistory,
+          { sender: 'gemini', message: 'Sorry, I could not understand that.' }
+        ]);
+      }
     } catch (error) {
-      console.error('Error communicating with GEMINI API', error);
+      console.error('Error communicating with Google Generative Language API', error);
       setChatHistory([
         ...newChatHistory,
-        { sender: 'gemini', message: 'Sorry, there was an error. Please try again.' },
+        { sender: 'gemini', message: 'Sorry, there was an error. Please try again.' }
       ]);
     } finally {
       setLoading(false);
