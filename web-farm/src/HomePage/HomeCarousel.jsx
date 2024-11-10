@@ -18,7 +18,7 @@ const HomeCarousel = () => {
                     </ol>
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img src="Home_slide1.jpg" className="d-block w-100" alt="Slide 1" style={{ width: '1400px', height: '600px' }} />
+                            <img src="Home_slide1.jpg" className="d-block w-100" alt="Slide 1" style={{ width: '1000px', height: '600px' }} />
                             <div className="carousel-caption d-none d-md-block">
                                 <h5>Welcome to Farming 3D</h5>
                                 <p>Welcome to Our Website where you can take valuable experience of Farming.</p>

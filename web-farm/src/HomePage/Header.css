@@ -7,3 +7,8 @@
     color: lightgray; /* Optional: Change hover color */
     text-decoration: none; /* Ensure there's no underline on hover */
 }
+
+.logo {
+    width: 10rem;
+    height: 3rem;
+}

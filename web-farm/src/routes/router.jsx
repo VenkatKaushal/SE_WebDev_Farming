@@ -9,6 +9,7 @@ import Info_page from "../Info_Page/Components/info_page";
 import ForgotPassword from "../RegisterPage/ForgotPassword";
 import PredictionPage from '../Prediction Page/PredictionPage';
 import ResultsPage from '../Prediction Page/Results';
+import ContactUs from '../HomePage/ContactUs';
 
 export const router = createBrowserRouter([
             {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
             {
                 path: "/signup",
                 element: <SignUp/>,
+            },
+            {
+                path: "/contactUs",
+                element: <ContactUs/>,
             },
             {
                 path: "/simulate",
