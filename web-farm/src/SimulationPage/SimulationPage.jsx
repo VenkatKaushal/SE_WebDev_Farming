@@ -153,19 +153,22 @@ const crops = [
     backgroundColor: "#FDEBD0",
   },
   
-
-  // Add more crops as needed
 ];
 
-// Main App Component
+
 function App() {
   const [infoIndex, setInfoIndex] = useState(0);
   const [currentCrop, setCurrentCrop] = useState(null);
   const [showChatbot, setShowChatbot] = useState(false);
 
-  // Function to toggle the chatbot visibility
+
   const toggleChatbot = () => {
     setShowChatbot(!showChatbot);
+  };
+
+  const handleCropSelect = (crop) => {
+    setCurrentCrop(crop);
+    setInfoIndex(0);
   };
 
   const transitions = useTransition(infoIndex, {
@@ -193,12 +196,11 @@ function App() {
     const cropName = e.dataTransfer.getData("cropName");
     const selectedCrop = crops.find((crop) => crop.name === cropName);
     setCurrentCrop(selectedCrop);
-    setInfoIndex(0); // Reset info slide index when a new crop is selected
+    setInfoIndex(0); 
   };
 
   return (
     <div className="app-container">
-      {/* Side Panel */}
       <aside className="side-panel">
         <h2>Side Panel</h2>
         {crops.map((crop, index) => (
@@ -207,6 +209,7 @@ function App() {
             className="crop-box"
             draggable
             onDragStart={(e) => handleDragStart(e, crop)}
+            onClick={() => handleCropSelect(crop)}
           >
             <img src={crop.imgSrc} alt={crop.name} className="crop-image" />
             <p>{crop.name}</p>
@@ -214,7 +217,6 @@ function App() {
         ))}
       </aside>
 
-      {/* 3D Model Display */}
       <main className="main-display" onDrop={handleDrop} onDragOver={(e) => e.preventDefault()}>
         {currentCrop ? (
           currentCrop.isFbx ? (
