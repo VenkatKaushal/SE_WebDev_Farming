@@ -11,8 +11,8 @@ export default function SimulationPage() {
     // <DndProvider backend={HTML5Backend}>
     //   <div className="app-container">
     //     <App/>
-    //     {/* <SidePanel /> */}
-    //     {/* <FarmCropSimulator /> */}
+    //     {}
+    //     {}
     //   </div>
     // </DndProvider>
   );
@@ -22,137 +22,144 @@ export default function SimulationPage() {
 import React, { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useTransition, animated } from '@react-spring/web';
-import ObjModel from './GlbModel'; // Use GlbModel now
+import ObjModel from './GlbModel'; 
 import Chatbot from './Chatbot';
 import './SimulationPage.css';
 
-// Crop data array
 const crops = [
   {
     name: "Seed Germination Process",
-    imgSrc: "path/to/corn-image.jpg",
+    imgSrc: "Germination.jpg",
     sketchfabLink: "https://sketchfab.com/models/7e9031c2810c44fe8a0ffd3bf7864874/embed",
     texturePath: "",
     infoSlides: [
-      "Wheat is a staple grain used globally.",
-      "It grows best in temperate climates.",
-      "Harvested primarily for bread and pasta."
-    ],
+      "Germination starts with water absorption (imbibition), triggering seed growth.",
+      "Key stages: Imbibition, Radicle Emergence (root growth), Shoot Growth, and Seedling Establishment.",
+      "Ensure soil moisture is consistent but avoid waterlogging to prevent rot.",
+      "Optimal temperature varies by crop but generally falls between 15-30°C.",
+      "Soil should be well-aerated, loose, and nutrient-rich to support root growth.",
+      "Protect seedlings from pests and diseases using organic treatments or seed coatings.",
+      "Avoid sowing seeds too deep, as this may delay or prevent emergence.",
+      "Use pre-germination treatments like soaking or scarification for hard-coated seeds.",
+      "Ensure good soil contact with seeds to facilitate water and nutrient absorption.",
+      "Monitor seedling progress, as early stress can impact growth and yield."
+    ],    
     isFbx: false,
   },
   {
     name: "Wheat",
-    imgSrc: "path/to/wheat-image.jpg",
+    imgSrc: "Wheat.jpg",
     sketchfabLink: "https://sketchfab.com/models/859b3117ef8341529e86f7fc2c02cb01/embed",
     infoSlides: [
-      "Wheat is a staple grain used globally.",
-      "It grows best in temperate climates.",
-      "Harvested primarily for bread and pasta."
-    ],
+      "Wheat thrives in temperate climates with well-drained soil.",
+      "Important stages: Germination, Tillering, Stem Elongation, Heading, and Ripening.",
+      "Critical tasks: Fertilization at tillering, regular irrigation, and weed control.",
+      "Temperature between 12-25°C and rainfall of 300-500 mm are ideal.",
+      "Harvest when grains are hard and moisture is around 20% for best yield."
+    ],    
     backgroundColor: "#FDEBD0",
     texturePath: "",
     isFbx: false,
   },
   {
     name: "Corn",
-    imgSrc: "path/to/corn-image.jpg",
+    imgSrc: "Corn.jpg",
     sketchfabLink: "https://sketchfab.com/models/3ce02a9b2d34499188a337681d84fb1b/embed",
     backgroundColor: "#FFF3CD",
     infoSlides: [
-      "Corn is a versatile crop.",
-      "It is used for food, fuel, and feed.",
-      "Corn is native to the Americas."
-    ],
+      "Corn requires warm climates with deep, fertile soil.",
+      "Key stages: Germination, V6 (sixth leaf), Tasseling, and Kernel Development.",
+      "Ensure consistent soil moisture, especially during pollination.",
+      "Apply nitrogen-rich fertilizers; avoid drought stress.",
+      "Harvest when husks are dry, and kernels are hard and glossy."
+    ],    
     texturePath: "",
     isFbx: false,
   },
   {
     name: "Potato",
-    imgSrc: "path/to/corn-image.jpg",
+    imgSrc: "Potato.jpg",
     sketchfabLink: "https://sketchfab.com/models/59868a9df1e14a8caa62c0b536885103/embed",
     texturePath: "",
     infoSlides: [
-      "Wheat is a staple grain used globally.",
-      "It grows best in temperate climates.",
-      "Harvested primarily for bread and pasta."
-    ],
+      "Potatoes grow best in cool climates with loose, well-drained soil.",
+      "Stages include Sprouting, Vegetative Growth, Tuber Initiation, Tuber Bulking, and Maturation.",
+      "Essential tasks: Hill soil around plants for tuber protection and manage pests.",
+      "Ideal conditions: Temperature 15-20°C and regular watering during tuber formation.",
+      "Harvest when foliage dies back and skins of tubers are firm."
+    ],    
     isFbx: false,
   },
   {
     name: "Rice",
-    imgSrc: "path/to/corn-image.jpg",
+    imgSrc: "Rice.jpg",
     sketchfabLink: "https://sketchfab.com/models/02849731fe31486ca2eff1243455a6e9/embed",
     texturePath: "",
     infoSlides: [
-      "Wheat is a staple grain used globally.",
-      "It grows best in temperate climates.",
-      "Harvested primarily for bread and pasta."
-    ],
+      "Rice grows best in warm, submerged fields with clayey soil.",
+      "Key stages: Seedling, Tillering, Panicle Initiation, Flowering, and Grain Filling.",
+      "Maintain flooded fields during growth stages for best yield.",
+      "Apply phosphorus-rich fertilizers at seeding and nitrogen at tillering.",
+      "Harvest when grains are golden and firm for optimal quality."
+    ],    
     isFbx: false,
   },
   {
     name: "Red Onion",
-    imgSrc: "path/to/corn-image.jpg",
+    imgSrc: "Red Onion.jpg",
     sketchfabLink: "https://sketchfab.com/models/cfb0032cf8aa4bf496857033d45ce783/embed",
     texturePath: "",
     infoSlides: [
-      "Wheat is a staple grain used globally.",
-      "It grows best in temperate climates.",
-      "Harvested primarily for bread and pasta."
-    ],
+      "Red onions thrive in well-drained, fertile soil with high organic matter.",
+      "Important stages: Germination, Leaf Development, Bulb Formation, and Maturation.",
+      "Weed regularly, water consistently, and avoid waterlogging.",
+      "Apply nitrogen-rich fertilizer during early growth stages.",
+      "Harvest when tops fall over and outer skins are dry."
+    ],    
     isFbx: false,
   },
   {
     name: "Peas",
-    imgSrc: "path/to/corn-image.jpg",
+    imgSrc: "Peas.jpg",
     sketchfabLink: "https://sketchfab.com/models/76e54f38c2b14c4ab6d01f19600a0906/embed",
     texturePath: "",
     infoSlides: [
-      "Wheat is a staple grain used globally.",
-      "It grows best in temperate climates.",
-      "Harvested primarily for bread and pasta."
-    ],
+      "Peas prefer cooler temperatures and moderately fertile, well-drained soil.",
+      "Stages: Germination, Vegetative Growth, Flowering, Pod Formation, and Maturity.",
+      "Ensure adequate water supply, especially during flowering.",
+      "Apply a balanced fertilizer at seeding; phosphorus is beneficial.",
+      "Harvest when pods are plump but still green for best quality."
+    ],    
     isFbx: false,
   },
   {
     name: "Tomato",
-    imgSrc: "path/to/corn-image.jpg",
+    imgSrc: "Tomato.jpg",
     sketchfabLink: "https://sketchfab.com/models/3e5b6208a9cb403d8a2cd041a09ee856/embed",
     texturePath: "",
     infoSlides: [
-      "Wheat is a staple grain used globally.",
-      "It grows best in temperate climates.",
-      "Harvested primarily for bread and pasta."
-    ],
+      "Tomatoes grow well in warm, sunny locations with well-drained soil.",
+      "Stages: Germination, Vegetative Growth, Flowering, Fruit Setting, and Ripening.",
+      "Key tasks: Stake plants, apply nitrogen-rich fertilizer, and prune for airflow.",
+      "Ideal conditions: Temperature 20-30°C and regular watering.",
+      "Harvest when tomatoes are fully colored and firm for best flavor."
+    ],    
     isFbx: false,
   },
   {
-    name: "Lettue",
-    imgSrc: "path/to/corn-image.jpg",
+    name: "Lettuce",
+    imgSrc: "Lettuce.jpg",
     sketchfabLink: "https://sketchfab.com/models/cdbab6b20d3e4bb3b025c3f1c87d153c/embed",
     texturePath: "",
     infoSlides: [
-      "Wheat is a staple grain used globally.",
-      "It grows best in temperate climates.",
-      "Harvested primarily for bread and pasta."
-    ],
+      "Lettuce grows best in cool, moist conditions and well-drained soil.",
+      "Stages: Germination, Leaf Development, Heading (for certain types), and Maturity.",
+      "Water consistently, avoid heat stress, and use shade if needed.",
+      "Apply nitrogen during early stages for healthy leaf development.",
+      "Harvest when leaves or heads reach full size and are crisp."
+    ],    
     isFbx: false,
   },
-  {
-    name: "Garlic",
-    imgSrc: "path/to/corn-image.jpg",
-    sketchfabLink: "https://sketchfab.com/models/cdbab6b20d3e4bb3b025c3f1c87d153c/embed",
-    modelPath: "garlic.obj",
-    texturePath: "texture.png",
-    isFbx: true,
-    infoSlides: [
-      "Wheat is a staple grain used globally.",
-      "It grows best in temperate climates.",
-      "Harvested primarily for bread and pasta."
-    ],
-    backgroundColor: "#FDEBD0",
-  },
-  
 ];
 
 
@@ -239,7 +246,7 @@ function App() {
         )}
       </main>
 
-      {/* Information Display Panel */}
+      {}
       <section
         className="info-panel"
         style={{ backgroundColor: currentCrop ? currentCrop.backgroundColor : "#e9e9e9" }}
@@ -256,7 +263,7 @@ function App() {
           )}
         </div>
         <div style={{ padding: '20px' }}>
-      {/* Chatbot icon */}
+      {}
       <div
         className="chatbot-icon"
         onClick={toggleChatbot}
@@ -276,7 +283,7 @@ function App() {
         💬
       </div>
 
-      {/* Conditionally render the chatbot */}
+      {}
       {showChatbot && <Chatbot toggleChatbot={toggleChatbot} />}
     </div>
       </section>
