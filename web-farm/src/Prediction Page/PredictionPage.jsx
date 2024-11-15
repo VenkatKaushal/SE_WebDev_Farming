@@ -24,7 +24,7 @@ const PredictionPage = () => {
     // Validate all form fields
     const validateFields = () => {
         const newErrors = {};
-
+        
         // Check for empty fields
         Object.entries(formData).forEach(([key, value]) => {
             if (!value || value.trim() === '') {
@@ -52,7 +52,7 @@ const PredictionPage = () => {
     // Handle input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
-
+        
         // Clear error when field is modified
         setErrors(prev => ({
             ...prev,
@@ -72,7 +72,7 @@ const PredictionPage = () => {
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
         // Validate fields before submission
         if (!validateFields()) {
             setFormError('Please correct the errors before submitting.');
@@ -96,7 +96,7 @@ const PredictionPage = () => {
 
             // Make API request
             const response = await axios.post(`${BACKEND_URL}/predict`, payload);
-
+            
             if (response.data.success) {
                 // Navigate to results page with prediction and input data
                 navigate('/results', {
@@ -110,7 +110,7 @@ const PredictionPage = () => {
             }
         } catch (error) {
             console.error('Prediction error:', error);
-
+            
             // Handle different types of errors
             if (error.response) {
                 // Server responded with an error
@@ -162,8 +162,9 @@ const PredictionPage = () => {
                             name="crop"
                             value={formData.crop}
                             onChange={handleChange}
-                            className={`mt-1 block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 ${errors.crop ? 'border-red-500' : 'border-gray-300'
-                                }`}
+                            className={`mt-1 block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 ${
+                                errors.crop ? 'border-red-500' : 'border-gray-300'
+                            }`}
                             required
                         >
                             <option value="">Select Crop</option>
@@ -193,8 +194,9 @@ const PredictionPage = () => {
                             name="state"
                             value={formData.state}
                             onChange={handleChange}
-                            className={`mt-1 block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 ${errors.state ? 'border-red-500' : 'border-gray-300'
-                                }`}
+                            className={`mt-1 block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 ${
+                                errors.state ? 'border-red-500' : 'border-gray-300'
+                            }`}
                             required
                         >
                             <option value="">Select State</option>
@@ -218,8 +220,9 @@ const PredictionPage = () => {
                                 name={field}
                                 value={formData[field]}
                                 onChange={handleChange}
-                                className={`mt-1 block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 ${errors[field] ? 'border-red-500' : 'border-gray-300'
-                                    }`}
+                                className={`mt-1 block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 ${
+                                    errors[field] ? 'border-red-500' : 'border-gray-300'
+                                }`}
                                 step="0.01"
                                 required
                             />
@@ -227,27 +230,29 @@ const PredictionPage = () => {
                         </div>
                     ))}
 
-                    <div className="flex justify-between space-x-6 pt-4">
+                    <div className="flex justify-between space-x-4">
                         <button
                             type="button"
                             onClick={handleReset}
-                            className="py-2 px-6 bg-gray-50 text-gray-700 font-medium rounded-md hover:bg-gray-100 border border-gray-300 transition-colors duration-200"
+                            className="py-2 px-4 bg-gray-100 text-gray-700 font-semibold rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                         >
                             Reset
                         </button>
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className={`py-2 px-6 bg-gray-800 text-white font-medium rounded-md transition-all duration-200
-                                ${isLoading ? 'opacity-75 cursor-not-allowed' : 'hover:bg-gray-700'}`}
+                            onClick={handleSubmit}
+                            className={`py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
+                                isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-indigo-700'
+                            }`}
                         >
                             {isLoading ? (
-                                <span className="flex items-center space-x-2">
-                                    <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <span className="flex items-center">
+                                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                     </svg>
-                                    <span>Loading...</span>
+                                    Predicting...
                                 </span>
                             ) : (
                                 'Predict Yield'

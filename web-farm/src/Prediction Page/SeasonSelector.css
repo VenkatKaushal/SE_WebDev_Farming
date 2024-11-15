@@ -1,5 +1,3 @@
-/* SeasonSelector.css */
-
 /* Tooltip Styles */
 .tooltip-icon {
     display: inline-flex;
@@ -16,7 +14,7 @@
   }
   
   .tooltip-icon:hover {
-    background-color: #4f46e5;
+    background-color: pink;
   }
   
   .tooltip-icon[data-tooltip]:hover::after {
@@ -62,7 +60,7 @@
   }
   
   button:hover {
-    border-color: #4f46e5;
+    border-color: red;
     background-color: #f3f4f6;
   }
   
@@ -71,14 +69,16 @@
     box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
   }
   
+  /* Selected Button Styles */
   button.selected {
-    border-color: #4f46e5;
-    background-color: #eef2ff;
+    border-color: #ff6347; /* Tomato color for selected */
+    background-color: #ffeee6; /* Light tomato shade */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05); /* Slight scale-up effect */
   }
   
   button.selected svg {
-    fill: #4f46e5;
+    fill: #ff6347;
   }
   
   /* Icon Styles */
@@ -103,13 +103,5 @@
   
   .text-gray-700 {
     color: #4b5563;
-  }
-  
-  .text-gray-50 {
-    color: #f9fafb;
-  }
-  
-  .text-gray-800 {
-    color: #1f2937;
   }
   
