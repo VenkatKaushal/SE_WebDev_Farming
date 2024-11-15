@@ -51,11 +51,11 @@ const crops = [
     imgSrc: "Cabbage.jpg",
     sketchfabLink: "https://sketchfab.com/models/836f41d5ee4a4b249c42193b4cb56ea3/embed",
     infoSlides: [
-      "Wheat thrives in temperate climates with well-drained soil.",
-      "Important stages: Germination, Tillering, Stem Elongation, Heading, and Ripening.",
-      "Critical tasks: Fertilization at tillering, regular irrigation, and weed control.",
-      "Temperature between 12-25°C and rainfall of 300-500 mm are ideal.",
-      "Harvest when grains are hard and moisture is around 20% for best yield."
+      "Cabbage grows best in cool climates with temperatures between 15-21°C.",
+      "Needs fertile, well-drained soil rich in organic matter, with a pH of 6.5-7.5.",
+      "Critical tasks: Fertilization with nitrogen, regular irrigation, and pest control (especially caterpillars).",
+      "Requires 300-400 mm of rainfall for optimal growth, and waterlogging should be avoided.",
+      "Harvest when heads are firm and reach the desired size but before splitting occurs."
     ],    
     backgroundColor: "#FDEBD0",
     texturePath: "",
@@ -63,15 +63,15 @@ const crops = [
   },
   {
     name: "Watermelon",
-    imgSrc: "Watermelon.jpg",
+    imgSrc: "Watermelon.webp",
     sketchfabLink: "https://sketchfab.com/models/f0b612f9b91e4ef29aa6665e86ea3898/embed",
     infoSlides: [
-      "Wheat thrives in temperate climates with well-drained soil.",
-      "Important stages: Germination, Tillering, Stem Elongation, Heading, and Ripening.",
-      "Critical tasks: Fertilization at tillering, regular irrigation, and weed control.",
-      "Temperature between 12-25°C and rainfall of 300-500 mm are ideal.",
-      "Harvest when grains are hard and moisture is around 20% for best yield."
-    ],    
+      "Watermelon prefers warm climates with temperatures between 25-30°C.",
+      "Requires sandy, loamy soil with good drainage and a pH range of 6.0-6.8.",
+      "Critical tasks: Proper spacing, mulching to retain soil moisture, and consistent watering during flowering and fruiting.",
+      "Ideal rainfall is 400-600 mm, but excess water can cause fruit splitting.",
+      "Harvest when the fruit sounds hollow when tapped and the bottom turns yellow."
+    ],   
     backgroundColor: "#FDEBD0",
     texturePath: "",
     isFbx: false,

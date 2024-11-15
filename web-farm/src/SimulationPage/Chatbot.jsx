@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Chatbot.css'
 
 const Chatbot = ({ toggleChatbot }) => {
   const [userMessage, setUserMessage] = useState('');
@@ -92,23 +93,31 @@ const Chatbot = ({ toggleChatbot }) => {
       }}
     >
       {/* Minimize Button */}
-      <button
-        onClick={toggleChatbot}
-        style={{
-          alignSelf: 'flex-end',
-          backgroundColor: '#FF6347',
-          border: 'none',
-          color: 'white',
-          borderRadius: '50%',
-          padding: '5px 10px',
-          cursor: 'pointer',
-          fontSize: '20px',
-          fontWeight: 'bold',
-          transition: 'all 0.3s',
-        }}
-      >
-        −
-      </button>
+      <button className="minimize-button"
+onClick={toggleChatbot}
+style={{
+alignSelf: 'flex-end',
+background: 'linear-gradient(135deg, #FF6347 0%, #E25C40 100%)',
+border: 'none',
+color: 'white',
+borderRadius: '50%',
+width: '32px',
+height: '32px',
+padding: '0',
+cursor: 'pointer',
+fontSize: '16px',
+fontWeight: 'bold',
+transition: 'all 0.3s',
+display: 'flex',
+alignItems: 'center',
+justifyContent: 'center',
+}}
+>
+−
+</button>
+
+
+
 
       <h3
         style={{
