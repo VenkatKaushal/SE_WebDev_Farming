@@ -25,7 +25,7 @@ body {
   animation: fadeIn 0.5s ease-out;
 }
 
-/* Form Styles */
+/* Form Container Styles */
 .form-container {
   background: white;
   border-radius: 1rem;
@@ -41,8 +41,8 @@ body {
 .field-container {
   position: relative;
   margin-bottom: 1.5rem;
-  animation: slideUp 0.4s ease-out forwards;
   opacity: 0;
+  animation: slideUp 0.4s ease-out forwards;
 }
 
 .field-container:nth-child(1) { animation-delay: 0.1s; }
@@ -64,6 +64,7 @@ label {
 }
 
 /* Tooltip Styles */
+/* Tooltip Styles */
 .tooltip-icon {
   display: inline-flex;
   align-items: center;
@@ -71,24 +72,24 @@ label {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background-color: var(--text-secondary);
+  background-color: #6b7280;
   color: white;
   font-size: 12px;
   cursor: help;
-  transition: all var(--transition-speed);
-  position: relative;
+  position: relative; /* Add this to position the tooltip relative to the icon */
+  transition: all 0.3s ease;
 }
 
 .tooltip-icon:hover {
-  background-color: var(--primary-color);
+  background-color: #4f46e5;
 }
 
 .tooltip-icon[data-tooltip]:hover::after {
   content: attr(data-tooltip);
   position: absolute;
-  top: -40px;
+  top: 100%; /* Position it below the icon */
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); /* Center it horizontally relative to the icon */
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 0.5rem;
@@ -97,6 +98,16 @@ label {
   white-space: nowrap;
   z-index: 10;
   animation: fadeIn 0.2s ease-out;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Input and Select Styles */
@@ -195,34 +206,18 @@ button:disabled {
 
 /* Animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes shake {
@@ -236,11 +231,11 @@ button:disabled {
   .container {
     padding: 1rem;
   }
-  
+
   button {
     width: 100%;
   }
-  
+
   .tooltip-icon[data-tooltip]:hover::after {
     white-space: normal;
     width: 200px;
@@ -261,9 +256,7 @@ button:disabled {
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 /* Card Hover Effects */
@@ -300,20 +293,15 @@ button:disabled {
 }
 
 @keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.1);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(0.89);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 0.9; transform: scale(1.1); }
+  80% { opacity: 1; transform: scale(0.89); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Focus Styles for Select Dropdown */
+select:focus, input:focus {
+  border-color: var(--primary-dark);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.25);
 }

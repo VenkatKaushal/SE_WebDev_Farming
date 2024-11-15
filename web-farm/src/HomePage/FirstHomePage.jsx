@@ -6,8 +6,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 const LandingPage = () => {
     return (
         <>
-             {/* Story Section - Conversation between Farmer and Crop */}
-             <div className="container my-4">
+            {/* Story Section - Conversation between Farmer and Crop */}
+            <div className="container my-4">
                 <div className="row mb-4">
 
                     {/* Farmer's Side - Title, SVG, and Text (Left Corner) */}
@@ -17,19 +17,30 @@ const LandingPage = () => {
                         </div>
                         <div className="farmer-illustration">
                             {/* Farmer SVG */}
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="150" height="150" className="farmer-svg">
-                                {/* Farmer Head */}
-                                <circle cx="70" cy="40" r="20" fill="#FFD700" />
-                                {/* Farmer Hat */}
-                                <rect x="55" y="25" width="30" height="10" fill="#8B4513" />
-                                {/* Farmer Body */}
-                                <rect x="60" y="60" width="20" height="40" fill="#8B4513" />
-                                {/* Farmer Arms */}
-                                <line x1="60" y1="70" x2="40" y2="90" stroke="#8B4513" strokeWidth="5" />
-                                <line x1="80" y1="70" x2="100" y2="90" stroke="#8B4513" strokeWidth="5" />
-                                {/* Farmer Legs */}
-                                <line x1="60" y1="100" x2="60" y2="130" stroke="#3e2723" strokeWidth="5" />
-                                <line x1="80" y1="100" x2="80" y2="130" stroke="#3e2723" strokeWidth="5" />
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+                                
+                                <circle cx="100" cy="60" r="30" fill="#FFD700" />
+                                
+                                <rect x="70" y="35" width="60" height="10" fill="#8B4513" />
+                                <rect x="60" y="45" width="80" height="10" fill="#8B4513" />
+
+                                <circle cx="90" cy="55" r="5" fill="#000" />
+                                <circle cx="110" cy="55" r="5" fill="#000" />
+                                
+                                <path d="M100,65 Q95,70 100,75" stroke="#000" fill="transparent" />
+                                
+                                <path d="M90,80 Q100,85 110,80" stroke="#000" fill="transparent" />
+                                
+                                <rect x="85" y="90" width="30" height="60" fill="#8B4513" />
+                                
+                                <line x1="85" y1="100" x2="60" y2="120" stroke="#8B4513" stroke-width="6" />
+                                <line x1="115" y1="100" x2="140" y2="120" stroke="#8B4513" stroke-width="6" />
+                                
+                                <line x1="90" y1="150" x2="90" y2="180" stroke="#3e2723" stroke-width="8" />
+                                <line x1="110" y1="150" x2="110" y2="180" stroke="#3e2723" stroke-width="8" />
+                                
+                                <ellipse cx="90" cy="190" rx="10" ry="5" fill="#3e2723" />
+                                <ellipse cx="110" cy="190" rx="10" ry="5" fill="#3e2723" />
                             </svg>
                         </div>
                         <div className="speech-text">

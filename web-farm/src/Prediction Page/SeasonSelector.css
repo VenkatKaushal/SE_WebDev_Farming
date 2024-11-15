@@ -1,0 +1,115 @@
+/* SeasonSelector.css */
+
+/* Tooltip Styles */
+.tooltip-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #6b7280;
+    color: white;
+    font-size: 12px;
+    cursor: help;
+    transition: all 0.3s ease;
+  }
+  
+  .tooltip-icon:hover {
+    background-color: #4f46e5;
+  }
+  
+  .tooltip-icon[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    z-index: 10;
+    animation: fadeIn 0.2s ease-out;
+  }
+  
+  /* Grid Layout for Seasons */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Button Styles */
+  button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid #e5e7eb;
+    background-color: white;
+    transition: all 0.2s ease;
+  }
+  
+  button:hover {
+    border-color: #4f46e5;
+    background-color: #f3f4f6;
+  }
+  
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+  }
+  
+  button.selected {
+    border-color: #4f46e5;
+    background-color: #eef2ff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  button.selected svg {
+    fill: #4f46e5;
+  }
+  
+  /* Icon Styles */
+  .w-10 {
+    width: 2.5rem;
+  }
+  
+  .h-10 {
+    height: 2.5rem;
+  }
+  
+  /* Label and Text Styles */
+  label {
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+  
+  .text-sm {
+    font-size: 0.875rem;
+  }
+  
+  .text-gray-700 {
+    color: #4b5563;
+  }
+  
+  .text-gray-50 {
+    color: #f9fafb;
+  }
+  
+  .text-gray-800 {
+    color: #1f2937;
+  }
+  
