@@ -10,6 +10,7 @@ import ForgotPassword from "../RegisterPage/ForgotPassword";
 import PredictionPage from '../Prediction Page/PredictionPage';
 import ResultsPage from '../Prediction Page/Results';
 import ContactUs from '../HomePage/ContactUs';
+import Stats from '../stats/stats';
 
 export const router = createBrowserRouter([
             {
@@ -55,5 +56,9 @@ export const router = createBrowserRouter([
             {
                 path: "/results",
                 element: <ResultsPage />,
+            },
+            {
+                path: "/stats",
+                element: <Stats />,
             }
 ]);

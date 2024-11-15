@@ -1,0 +1,97 @@
+/* Custom styles for the Stats Page */
+
+.stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .stat-card {
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .stat-card .text-xl {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+  
+  .stat-card .text-2xl {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .stat-card .text-center {
+    text-align: center;
+  }
+  
+  /* Styles for the chart container */
+  .crop-production-chart {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .general-stats {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .general-stats .stat-card {
+    margin-bottom: 15px;
+  }
+  
+  /* Farming Insights Styling */
+  .farming-insights {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .farming-insights ul {
+    padding-left: 20px;
+  }
+  
+  .farming-insights li {
+    margin-bottom: 12px;
+  }
+  
+  .farming-insights .font-semibold {
+    font-weight: 600;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .statistics-summary {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .general-stats {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .crop-production-chart,
+    .farming-insights {
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .statistics-summary {
+      grid-template-columns: 1fr;
+    }
+  }
+  
