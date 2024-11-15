@@ -47,6 +47,36 @@ const crops = [
     isFbx: false,
   },
   {
+    name: "Cabbage",
+    imgSrc: "Cabbage.jpg",
+    sketchfabLink: "https://sketchfab.com/models/836f41d5ee4a4b249c42193b4cb56ea3/embed",
+    infoSlides: [
+      "Wheat thrives in temperate climates with well-drained soil.",
+      "Important stages: Germination, Tillering, Stem Elongation, Heading, and Ripening.",
+      "Critical tasks: Fertilization at tillering, regular irrigation, and weed control.",
+      "Temperature between 12-25°C and rainfall of 300-500 mm are ideal.",
+      "Harvest when grains are hard and moisture is around 20% for best yield."
+    ],    
+    backgroundColor: "#FDEBD0",
+    texturePath: "",
+    isFbx: false,
+  },
+  {
+    name: "Watermelon",
+    imgSrc: "Watermelon.jpg",
+    sketchfabLink: "https://sketchfab.com/models/f0b612f9b91e4ef29aa6665e86ea3898/embed",
+    infoSlides: [
+      "Wheat thrives in temperate climates with well-drained soil.",
+      "Important stages: Germination, Tillering, Stem Elongation, Heading, and Ripening.",
+      "Critical tasks: Fertilization at tillering, regular irrigation, and weed control.",
+      "Temperature between 12-25°C and rainfall of 300-500 mm are ideal.",
+      "Harvest when grains are hard and moisture is around 20% for best yield."
+    ],    
+    backgroundColor: "#FDEBD0",
+    texturePath: "",
+    isFbx: false,
+  },
+  {
     name: "Wheat",
     imgSrc: "Wheat.jpg",
     sketchfabLink: "https://sketchfab.com/models/859b3117ef8341529e86f7fc2c02cb01/embed",
