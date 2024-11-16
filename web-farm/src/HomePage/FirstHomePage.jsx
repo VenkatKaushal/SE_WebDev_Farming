@@ -131,7 +131,7 @@ const LandingPage = () => {
                             <div className="card-body">
                                 <h5 className="card-title">Crop Information</h5>
                                 <p className="card-text">Learn the key factors influencing your crop's health and growth stages.</p>
-                                <a href="/info" className="btn btn-primary">View Crop Info</a>
+                                <a href="/Info" className="btn btn-primary">View Crop Info</a>
                             </div>
                         </div>
                     </div>
