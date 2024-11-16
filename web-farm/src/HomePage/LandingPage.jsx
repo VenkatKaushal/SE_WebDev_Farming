@@ -2,6 +2,7 @@ import React from 'react';
 import './LandingPage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
     return (
@@ -103,7 +104,7 @@ const LandingPage = () => {
                             <div className="card-body">
                                 <h5 className="card-title">Crop Simulation</h5>
                                 <p className="card-text">Use our crop simulation tool to predict the future growth of your crops.</p>
-                                <a href="/simulate" className="btn btn-primary">Start Simulation</a>
+                                <Link href="/simulate" className="btn btn-primary">Start Simulation</a>
                             </div>
                         </div>
                     </div>
@@ -131,7 +132,7 @@ const LandingPage = () => {
                             <div className="card-body">
                                 <h5 className="card-title">Crop Information</h5>
                                 <p className="card-text">Learn the key factors influencing your crop's health and growth stages.</p>
-                                <a href="/Info" className="btn btn-primary">View Crop Info</a>
+                                <Link href="/Info" className="btn btn-primary">View Crop Info</a>
                             </div>
                         </div>
                     </div>
@@ -158,7 +159,7 @@ const LandingPage = () => {
                             <div className="card-body">
                                 <h5 className="card-title">Crop Prediction</h5>
                                 <p className="card-text">Use our prediction tool to forecast crop outcomes based on different scenarios.</p>
-                                <a href="/prediction" className="btn btn-primary">View Prediction</a>
+                                <Link href="/prediction" className="btn btn-primary">View Prediction</a>
                             </div>
                         </div>
                     </div>
@@ -188,7 +189,7 @@ const LandingPage = () => {
                             <div className="card-body">
                                 <h5 className="card-title">Crop Stats</h5>
                                 <p className="card-text">Analyze data-driven insights to improve farm productivity with detailed stats.</p>
-                                <a href="/stats" className="btn btn-primary">View Stats</a>
+                                <Link href="/stats" className="btn btn-primary">View Stats</a>
                             </div>
                         </div>
                     </div>
