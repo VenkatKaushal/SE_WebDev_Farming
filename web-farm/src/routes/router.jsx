@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import HomePage from '../HomePage/HomePage';
 import SignUp from "../RegisterPage/RegisterPage";
 import Login from "../RegisterPage/LoginPage";
-import Simulate from "../SimulationPage/SimulationPage";
+// import Simulate from "../SimulationPage/SimulationPage";
 import Crop_Info from "../Info_Page/Components/crop_info";
 import Fertilizer from "../Info_Page/Components/fertilizer_info";
 import Info_page from "../Info_Page/Components/info_page";
@@ -10,7 +10,8 @@ import ForgotPassword from "../RegisterPage/ForgotPassword";
 import PredictionPage from '../Prediction Page/PredictionPage';
 import ResultsPage from '../Prediction Page/Results';
 import ContactUs from '../HomePage/ContactUs';
-import Stats from '../stats/stats';
+import Stats from '@/stats/stats';
+import SimulationPage from '@/SimulationPage/SimulationPage';
 
 export const router = createBrowserRouter([
             {
@@ -31,7 +32,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/simulate",
-                element: <Simulate/>,
+                element: <SimulationPage/>,
             },
             {
                 path: "/Info",
@@ -59,6 +60,6 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/stats",
-                element: <Stats />,
+                element: <Stats/>,
             }
 ]);
