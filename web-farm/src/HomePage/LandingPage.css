@@ -1,0 +1,151 @@
+/* Title Styles */
+.farmer-title, .crop-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+}
+
+.farmer-title-text, .crop-title-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3e2723;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Special styling for Farmer and Crop titles */
+.farmer-title-text {
+    background-color: #f0f4c3;
+    border: 2px solid #8bc34a;
+}
+
+.crop-title-text {
+    background-color: #e8f5e9;
+    border: 2px solid #388e3c;
+}
+
+/* Styling for Speech Bubbles */
+.speech-text {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+/* Speech bubble with hover effect */
+.speech-bubble {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px 25px;
+    font-size: 16px;
+    color: #3e2723;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    max-width: 250px;
+    animation: bounce 2s ease-in-out infinite alternate;
+}
+
+/* Farmer Speech Bubble specific styles */
+.farmer-speech-bubble {
+    background: #f0f4c3;
+    border: 3px solid #8bc34a;
+}
+
+/* Crop Speech Bubble specific styles */
+.crop-speech-bubble {
+    background: #e8f5e9;
+    border: 3px solid #388e3c;
+}
+
+/* Speech bubble arrow */
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #fff;
+}
+
+/* Hover effect for speech bubble */
+.speech-bubble:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* Farmer and Crop SVGs styling */
+.farmer-svg, .crop-svg {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover effect on the farmer and crop SVGs */
+.farmer-svg:hover, .crop-svg:hover {
+    transform: scale(1.1) rotate(10deg);
+    filter: brightness(1.2);
+}
+
+/* Animation for the bouncing effect */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Farmer Speech Text Styling */
+.farmer-speech {
+    font-family: 'Arial', sans-serif;
+    color: #3e2723;
+    font-weight: bold;
+}
+
+/* Crop Speech Text Styling */
+.crop-speech {
+    font-family: 'Arial', sans-serif;
+    color: #2c6b29;
+    font-weight: bold;
+}
+
+/* Farmer's Illustration Styling */
+.farmer-illustration {
+    margin-right: 20px;
+    transform: scale(1.1);
+    animation: bounce 1s ease-in-out infinite alternate;
+}
+
+/* Crop's Illustration Styling */
+.crop-illustration {
+    margin-left: 20px;
+    transform: scale(1.1);
+    animation: bounce 1s ease-in-out infinite alternate;
+}
+
+/* Responsive Layout */
+@media (max-width: 767px) {
+    .farmer-svg, .crop-svg {
+        width: 120px;
+        height: 120px;
+    }
+
+    .speech-bubble {
+        width: 220px;
+    }
+
+    .farmer-title-text, .crop-title-text {
+        font-size: 18px;
+    }
+}
