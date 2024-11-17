@@ -17,19 +17,28 @@ exports.registerUser = async (req, res) => {
                 id: user.id,
             },
         };
-        jwt.sign(
+        const accessToken = jwt.sign(
             payload,
             process.env.JWT_SECRET,
             { expiresIn: '24h' },
             (err, token) => {
                 if (err) {
-                    console.error('Error generating token:', err.message);
+                    console.error('Error generating access token:', err.message);
                     return res.status(500).send("Server Error");
                 }
                 res.json({ token });
             }
         );
-
+        
+        const refreshToken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '7d' }, (err, token) => {
+            if (err) {
+                console.error('Error generating refreshtoken:', err.message);
+                return res.status(500).send("Server Error");
+            }
+            res.json({ token });
+        });
+        user.refreshToken = refreshToken;
+        await user.save();
         console.log("SignUp Successful");
     } catch (err) {
         console.error('Error during registration:', err.message);
@@ -38,7 +47,7 @@ exports.registerUser = async (req, res) => {
 };
 
 exports.loginUser = async (req, res) => {
-    const { username,email, password } = req.body;
+    const { username, email, password } = req.body;
 
     try {
         let user = await User.findOne({ username });
@@ -57,18 +66,31 @@ exports.loginUser = async (req, res) => {
             },
         };
 
-        jwt.sign(
+        const accessToken =  jwt.sign(
             payload,
             process.env.JWT_SECRET,
-            { expiresIn: '5h' },
+            { expiresIn: '24h' },
             (err, token) => {
                 if (err) {
-                    console.error('Error generating token:', err.message);
+                    console.error('Error generating accesstoken:', err.message);
                     return res.status(500).send("Server Error");
                 }
                 res.json({ token });
             }
         );
+
+        const refreshToken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '7d' },(err, token) => {
+            if (err) {
+                console.error('Error generating refreshtoken:', err.message);
+                return res.status(500).send("Server Error");
+            }
+            res.json({ token });
+        });
+
+        user.refreshToken = refreshToken;
+        await user.save();
+        res.json({ accessToken, refreshToken });
+
 
         console.log("Login Successful");
     } catch (err) {
@@ -76,6 +98,32 @@ exports.loginUser = async (req, res) => {
         res.status(500).send("Server Error");
     }
 };
+
+exports.refreshToken = async (req, res) => {
+    const { refreshToken } = req.body;
+
+    if (!refreshToken) {
+        return res.status(400).json({ msg: "Refresh token is required" });
+    }
+
+    try {
+        const decoded = jwt.verify(refreshToken, process.env.JWT_SECRET);
+        const user = await User.findById(decoded.user.id);
+
+        if (!user || user.refreshToken !== refreshToken) {
+            return res.status(403).json({ msg: "Invalid refresh token" });
+        }
+
+        const payload = { user: { id: user.id } };
+        const newAccessToken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5h' });
+
+        res.json({ accessToken: newAccessToken });
+    } catch (err) {
+        console.error("Error verifying refresh token:", err.message);
+        res.status(403).json({ msg: "Invalid refresh token" });
+    }
+};
+
 
 exports.ForgetPassword = async (req, res) => {
     try {
