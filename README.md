@@ -1,5 +1,5 @@
-# Important Anouncements
-- The deployed branches are 3D, backend and predict.
+# Important Announcements
+##- The deployed branches are 3D, backend and predict.
 
 # SE_WebDev_Farming
 
