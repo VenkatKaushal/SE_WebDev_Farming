@@ -13,7 +13,7 @@ export const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/api/auth/login', {
+      const res = await axios.post('https://se-webdev-farming.onrender.com/api/auth/login', {
         username,
         email,
         password,
