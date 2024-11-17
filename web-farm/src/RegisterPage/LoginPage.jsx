@@ -18,7 +18,7 @@ export const LoginPage = () => {
         email,
         password,
       });
-      console.log("lund");
+      //console.log("lund");
       // Assuming the backend returns a token in the response
       const token = res.data.token;
       // Save the token to localStorage (or cookie) for future requests
