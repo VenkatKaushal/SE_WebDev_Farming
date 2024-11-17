@@ -1,5 +1,7 @@
-const User = require( '../models/Users');
-const jwt = require( 'jsonwebtoken');
+const User = require('../models/Users');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');  
+
 
 exports.registerUser = async (req, res) => {
     const { username, email, password } = req.body;
@@ -9,13 +11,13 @@ exports.registerUser = async (req, res) => {
         if (user) {
             return res.status(400).json({ msg: 'User already exists' });
         }
+
         user = new User({ username, email, password });
+        user.password = await bcrypt.hash(password, 10);  
         await user.save();
 
         const payload = {
-            user: {
-                id: user.id,
-            },
+            user: { id: user.id }
         };
         const accessToken = jwt.sign(
             payload,
@@ -41,7 +43,7 @@ exports.registerUser = async (req, res) => {
         await user.save();
         console.log("SignUp Successful");
     } catch (err) {
-        console.error('Error during registration:', err.message);
+        console.error("Error during registration:", err.message);
         res.status(500).send("Server Error");
     }
 };
@@ -51,20 +53,16 @@ exports.loginUser = async (req, res) => {
 
     try {
         let user = await User.findOne({ username });
-
         if (!user) {
+            return res.status(400).json({ msg: "Invalid User" });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
             return res.status(400).json({ msg: "Invalid Credentials" });
         }
 
-        console.log("Stored Password:", user.password);
-        if (user.password !== password) {
-            return res.status(400).json({ msg: "Invalid Credentials" });
-        }
-        const payload = {
-            user: {
-                id: user.id,
-            },
-        };
+        const payload = { user: { id: user.id } };
 
         const accessToken =  jwt.sign(
             payload,
@@ -126,9 +124,9 @@ exports.refreshToken = async (req, res) => {
 
 
 exports.ForgetPassword = async (req, res) => {
-    try {
-        const { email, username, password } = req.body;
+    const { email, username, password } = req.body;
 
+    try {
         if (!email && !username) {
             return res.status(400).json({ message: "Email or username is required." });
         }
@@ -142,7 +140,7 @@ exports.ForgetPassword = async (req, res) => {
             return res.status(400).json({ message: "User not found" });
         }
 
-        user.password = password;
+        user.password = await bcrypt.hash(password, 10);
         await user.save();
 
         res.status(200).json({ message: 'Password updated successfully' });

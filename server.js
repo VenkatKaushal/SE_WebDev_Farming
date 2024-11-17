@@ -4,6 +4,7 @@ const cors = require('cors');
 const connectDB = require( './config/db.js');
 const auth = require( './routes/auth.js');
 const cropRoutes = require('./routes/iinfo.js');
+const path = require('path');
 dotenv.config();
 
 const app = express();
@@ -14,8 +15,9 @@ connectDB();
 // Middleware to parse JSON
 app.use(express.json({ extended: false }));
 app.use(cors());
-app.use('/services/images', express.static(path.join(__dirname, 'images')));
+// app.use('/services/images', express.static(path.join(__dirname, 'images')));
 // Routes
+app.use('/services', express.static(path.join(__dirname,'services')));
 app.use('/api/auth', auth);
 app.use('/api/info',cropRoutes);
 // Start the server
