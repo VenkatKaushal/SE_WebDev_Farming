@@ -1,21 +1,23 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './info_page.css'; 
-// Adjust path based on your file structure
+import './info_page.css';
 
 const InfoPage = () => {
     return (
         <div className="info-page">
-            <h1>Welcome to Agricultural Information</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/crop_info">Crop Information</Link>
-                    </li>
-                    <li>
-                        <Link to="/fertilizer_info">Pesticides and Fertilizers</Link>
-                    </li>
-                </ul>
+              <div className="info-title-box">
+                <h1>Welcome to Agricultural Information</h1>
+            </div>
+            <nav className="info-grid">
+                <Link to="/crop_info" className="info-card">
+                    <img src="wheat_bg.jpeg" alt="Crop Information" />
+                    <div className="info-text">Crop Information</div>
+                </Link>
+                <Link to="/fertilizer_info" className="info-card">
+                    <img src="fertilizer_bg.jpg" alt="Pesticides and Fertilizers" />
+                    <div className="info-text">Pesticides and Fertilizers</div>
+                </Link>
             </nav>
         </div>
     );
