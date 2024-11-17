@@ -4,6 +4,8 @@ import './info_page.css';
 
 const InfoPage = () => {
     return (
+        <div class="container">
+    <img src="NiceBG.jpg" alt="Background" class="bg-image"></img> 
         <div className="info-page">
               <div className="info-title-box">
                 <h1>Welcome to Agricultural Information</h1>
@@ -18,6 +20,7 @@ const InfoPage = () => {
                     <div className="info-text">Pesticides and Fertilizers</div>
                 </Link>
             </nav>
+        </div>
         </div>
     );
 };
