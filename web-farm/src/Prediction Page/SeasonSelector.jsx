@@ -109,26 +109,21 @@ const SeasonSelector = ({ selectedSeason, onChange }) => {
   ];
 
   return (
-    <div className="field-container">
-      <label className="block text-sm font-medium text-gray-700 mb-2">
+    <div className="">
+      <label className="">
         Season
         <span className="tooltip-icon" data-tooltip="The season in which the crop is grown.">i</span>
       </label>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid">
         {seasons.map((season) => (
           <button
             key={season.name}
             type="button"
             onClick={() => onChange({ target: { name: 'season', value: season.name } })}
-            className={`p-3 rounded-lg border transition-all duration-200 flex flex-col items-center gap-2
-              ${selectedSeason === season.name
-                ? 'border-gray-800 bg-gray-100 shadow-md scale-105 transform'
-                : 'border-gray-200 hover:border-gray-400 hover:bg-gray-50'
-              } 
-              ${selectedSeason === season.name ? 'bg-indigo-100' : ''} /* Add selected background color */`}
+            className={selectedSeason === season.name ? 'selected' : ''}
           >
             {season.icon}
-            <span className="text-sm font-medium text-gray-700">{season.name}</span>
+            <span>{season.name}</span>
           </button>
         ))}
       </div>

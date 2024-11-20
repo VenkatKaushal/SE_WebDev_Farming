@@ -1,107 +1,123 @@
 /* Tooltip Styles */
 .tooltip-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: #6b7280;
-    color: white;
-    font-size: 12px;
-    cursor: help;
-    transition: all 0.3s ease;
-  }
-  
-  .tooltip-icon:hover {
-    background-color: pink;
-  }
-  
-  .tooltip-icon[data-tooltip]:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    top: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.75rem;
-    white-space: nowrap;
-    z-index: 10;
-    animation: fadeIn 0.2s ease-out;
-  }
-  
-  /* Grid Layout for Seasons */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #6b7280;
+  color: white;
+  font-size: 12px;
+  cursor: help;
+  transition: all 0.3s ease;
+}
+
+.tooltip-icon:hover {
+  background-color: none;
+}
+
+.tooltip-icon[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 10;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Grid Layout for Seasons */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
   .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  @media (min-width: 640px) {
-    .grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  /* Button Styles */
-  button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: 2px solid #e5e7eb;
-    background-color: white;
-    transition: all 0.2s ease;
-  }
-  
-  button:hover {
-    border-color: red;
-    background-color: #f3f4f6;
-  }
-  
-  button:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
-  }
-  
-  /* Selected Button Styles */
-  button.selected {
-    border-color: #ff6347; /* Tomato color for selected */
-    background-color: #ffeee6; /* Light tomato shade */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05); /* Slight scale-up effect */
-  }
-  
-  button.selected svg {
-    fill: #ff6347;
-  }
-  
-  /* Icon Styles */
-  .w-10 {
-    width: 2.5rem;
-  }
-  
-  .h-10 {
-    height: 2.5rem;
-  }
-  
-  /* Label and Text Styles */
-  label {
-    font-weight: 500;
-    color: #1f2937;
-    margin-bottom: 1rem;
-  }
-  
-  .text-sm {
-    font-size: 0.875rem;
-  }
-  
-  .text-gray-700 {
-    color: #4b5563;
-  }
-  
+}
+
+button {
+  background: rgba(255, 0, 128, 0.2); /* Transparent background for minimal look */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px;
+  position: relative;
+  border-radius: 50%; /* Circular buttons */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect: Glow and slight elevation */
+button:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  box-shadow: 0 4px 8px rgba(0, 255, 128, 0.3); /* Green glow effect */
+}
+
+/* Selected button styles */
+button.selected {
+  transform: scale(1.2); /* Larger scale for selected state */
+  background: radial-gradient(circle, #bbf7d0 40%, transparent 70%); /* Subtle green highlight */
+  box-shadow: 0 6px 12px rgba(0, 255, 128, 0.5); /* Stronger glow */
+}
+
+/* Align icon and text for better appearance */
+button span {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Optional animation for hover transitions */
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(0, 255, 128, 0.2); /* Green ripple effect */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+button:hover::after {
+  width: 120%;
+  height: 120%;
+}
+
+/* Icon Styles */
+.w-10 {
+  width: 2.5rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+/* Label and Text Styles */
+label {
+  font-weight: 500;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-gray-700 {
+  color: #4b5563;
+}

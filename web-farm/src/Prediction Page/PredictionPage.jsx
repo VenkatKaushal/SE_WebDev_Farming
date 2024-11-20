@@ -209,7 +209,7 @@ const PredictionPage = () => {
                     </div>
 
                     {/* Numeric Inputs */}
-                    {['production', 'rainfall', 'fertilizer', 'pesticide'].map((field) => (
+                    {['production', 'moisture', 'fertilizer', 'pesticide'].map((field) => (
                         <div key={field} className="field-container">
                             <label className="block text-sm font-medium text-gray-700">
                                 {field.charAt(0).toUpperCase() + field.slice(1)}
@@ -217,7 +217,7 @@ const PredictionPage = () => {
                             </label>
                             <input
                                 type="number"
-                                name={field}
+                                name={field=='moisture' ? 'rainfall' : field}
                                 value={formData[field]}
                                 onChange={handleChange}
                                 className={`mt-1 block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 ${

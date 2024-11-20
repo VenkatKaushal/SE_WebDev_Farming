@@ -12,6 +12,7 @@ import ResultsPage from '../Prediction Page/Results';
 import ContactUs from '../HomePage/ContactUs';
 import Stats from '../stats/stats';
 import SimulationPage from '../SimulationPage/SimulationPage';
+import FertilizerInfo from '../Info_Page/Components/fertilizer_info';
 
 export const router = createBrowserRouter([
             {
@@ -36,15 +37,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/Info",
-                element: <Info_page/>,
+                element: <Infopage/>,
             },
             {
                 path: "/crop_info",
-                element: <Crop_Info/>,
+                element: <CropInfo/>,
             },
             {
                 path: "/fertilizer_info",
-                element: <Fertilizer/>,
+                element: <FertilizerInfo/>,
             },
             {
                 path: "/prediction",
