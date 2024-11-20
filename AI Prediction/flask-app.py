@@ -1,103 +1,91 @@
 from flask import Flask, request, jsonify
 import pandas as pd
+import numpy as np
 import joblib
 from flask_cors import CORS
+from sklearn.preprocessing import StandardScaler
+import logging
+from waitress import serve  # Production-ready server
+import os
 
+# Initialize Flask app and CORS
 app = Flask(__name__)
 CORS(app)
 
+# Setup logging for better monitoring
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Load models only once when the app starts
+logger.info("Loading models...")
+encoder = joblib.load('encoder.pkl')  # One-hot encoder
+scaler = joblib.load('scaler.pkl')    # Scaler
+model = joblib.load('model.pkl')      # Prediction model
+logger.info("Models loaded successfully.")
+
+# Feature Columns
+numerical_features = ['Production', 'Annual_Rainfall', 'Fertilizer', 'Pesticide']
+categorical_features = ['Crop', 'Season', 'State']
+expected_columns = encoder.get_feature_names_out(categorical_features)
+
+# Function to Predict Crop Yield
 def predict_crop_yield(input_data):
     try:
-        encoder = joblib.load('encoder.pkl')
-        scaler = joblib.load('scaler.pkl')
-        model = joblib.load('model.pkl')
-        
-        feature_names = encoder.get_feature_names_out(['Crop', 'Season', 'State'])
-        encoded_df = pd.DataFrame(0, index=range(len(input_data)), columns=feature_names)
-        
-        for idx, row in input_data.iterrows():
-            crop_col = f"Crop_{row['Crop']}"
-            season_col = f"Season_{row['Season'].strip()}"
-            state_col = f"State_{row['State']}"
-            
-            if crop_col in encoded_df.columns:
-                encoded_df.loc[idx, crop_col] = 1
-            if season_col in encoded_df.columns:
-                encoded_df.loc[idx, season_col] = 1
-            if state_col in encoded_df.columns:
-                encoded_df.loc[idx, state_col] = 1
-    
-        numerical_features = ['Production', 'Annual_Rainfall', 'Fertilizer', 'Pesticide']
-        processed_data = pd.concat([
-            input_data[numerical_features].reset_index(drop=True),
-            encoded_df
-        ], axis=1)
-        
-        scaled_features = scaler.transform(processed_data)
+        # One-Hot Encoding for Categorical Features (Only once per request)
+        encoded_df = pd.get_dummies(input_data[categorical_features], columns=categorical_features)
+
+        # Ensure all expected columns are present
+        missing_cols = set(expected_columns) - set(encoded_df.columns)
+        for col in missing_cols:
+            encoded_df[col] = 0
+        encoded_df = encoded_df[expected_columns]  # Reorder to match the model's expected order
+
+        # Combine Numerical and Encoded Categorical Features
+        processed_data = pd.concat([input_data[numerical_features].reset_index(drop=True),
+                                    encoded_df.reset_index(drop=True)], axis=1)
+
+        # Scale Features
+        scaled_features = scaler.transform(processed_data.values)
+
+        # Predict Using the Pre-trained Model
         predictions = model.predict(scaled_features)
-        
         return predictions
-    
+
     except Exception as e:
-        print(f"Error during prediction: {str(e)}")
+        logger.error(f"Error during prediction: {str(e)}")
         raise
 
+# Route for Single Prediction
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
         if request.is_json:
             content = request.get_json()
+
+            # Convert JSON Input to DataFrame
             if isinstance(content, dict):
                 input_data = pd.DataFrame([content])
             else:
                 input_data = pd.DataFrame(content)
-        else:
-            return jsonify({'success': False, 'error': 'Request must be JSON'}), 400
-        
-        prediction = predict_crop_yield(input_data)
-        
-        return jsonify({
-            'success': True,
-            'predicted_yield': prediction.tolist(),
-            'message': 'Prediction successful'
-        })
-        
-    except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 400
 
-@app.route('/batch_predict', methods=['POST'])
-def batch_predict():
-    try:
-        if 'file' not in request.files:
-            return jsonify({'success': False, 'error': 'No file uploaded'}), 400
-            
-        file = request.files['file']
-        
-        if file.filename == '':
-            return jsonify({'success': False, 'error': 'No file selected'}), 400
-            
-        if file and file.filename.endswith('.csv'):
-            input_data = pd.read_csv(file)
-            predictions = predict_crop_yield(input_data)
-            input_data['Predicted_Yield'] = predictions
-            result_filename = 'predictions_' + file.filename
-            input_data.to_csv(result_filename, index=False)
-            
+            # Predict and Return Results
+            prediction = predict_crop_yield(input_data)
             return jsonify({
                 'success': True,
-                'predicted_yield': predictions.tolist(),
-                'result_file': result_filename,
-                'message': 'Batch prediction successful'
+                'predicted_yield': prediction.tolist(),
+                'message': 'Prediction successful'
             })
-            
+
         else:
-            return jsonify({'success': False, 'error': 'Invalid file format. Please upload a CSV file.'}), 400
-            
+            return jsonify({'success': False, 'error': 'Request must be JSON'}), 400
+
     except Exception as e:
+        logger.error(f"Prediction failed: {str(e)}")
         return jsonify({'success': False, 'error': str(e)}), 400
 
+# Optimized Startup with Production Server
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Running using Waitress in production (consider using a more scalable WSGI server)
+    logger.info("Starting server with Waitress...")
+    port = os.environ.get("PORT", 5000)
+    serve(app, host='0.0.0.0', port=port)
